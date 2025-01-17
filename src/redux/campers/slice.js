@@ -15,7 +15,8 @@ const campersSlice = createSlice({
         state.loading = true;
       })
       .addCase(fetchAllTruck.fulfilled, (state, action) => {
-        state.items = action.payload; // Зберігаємо масив вантажівок
+        // state.items = action.payload; // Зберігаємо масив вантажівок
+        state.items = action.payload.items || [];
         state.loading = false;
       })
       .addCase(fetchAllTruck.rejected, (state, action) => {

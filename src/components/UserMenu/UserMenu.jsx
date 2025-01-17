@@ -1,19 +1,16 @@
 // UserMenu
 import css from "./UserMenu.module.css";
+import FilterPanel from "../../components/FilterPanel/FilterPanel";
+import SearchBox from "../../components/SearchBox/SearchBox";
 
 export default function UserMenu() {
   // const dispatch = useDispatch();
 
   return (
     <div className={css.wrapper}>
-      <p className={css.username}>Welcome</p>
-      <button
-        className={css.button}
-        // onClick={() => dispatch(logOut())}
-        type="button"
-      >
-        Logout
-      </button>
+      <h1 className={css.cartTitle}>Your FilterPanel Card </h1>
+      <SearchBox />
+      <FilterPanel />
     </div>
   );
 }

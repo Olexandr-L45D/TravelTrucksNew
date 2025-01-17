@@ -1,11 +1,10 @@
 import css from "./TruckPage.module.css";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import TruckList from "../../components/TruckList/TruckList";
-import FilterPanel from "../../components/FilterPanel/FilterPanel";
+// import TruckList from "../../components/TruckList/TruckList";
 import { fetchAllTruck } from "../../redux/campers/operations";
 import { selectLoading } from "../../redux/campers/selectors";
-import SearchBox from "../../components/SearchBox/SearchBox";
+import AllTruckList from "../../components/AllTruckList/AllTruckList";
 
 export default function TruckPage() {
   const dispatch = useDispatch();
@@ -17,11 +16,9 @@ export default function TruckPage() {
 
   return (
     <div className={css.cartPage}>
-      <h1 className={css.cartTitle}>Your FilterPanel Card </h1>
-      <FilterPanel />
+      <h1 className={css.cartTitle}>Your All Panel</h1>
+      <AllTruckList />
       <div>{isLoading && "Request in progress..."}</div>
-      <SearchBox />
-      <TruckList />
     </div>
   );
 }

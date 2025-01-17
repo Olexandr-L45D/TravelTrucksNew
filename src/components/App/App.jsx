@@ -30,7 +30,7 @@ export default function App() {
           {/* <Route
             path="/catalog"
             element={
-              <PrivateRoute redirectTo="/:id" component={<TruckPage />} />
+              <PrivateRoute redirectTo="/:id" component={<UserMenu />} />
             }
           /> */}
           <Route path="*" element={<NotFoundPage />} />

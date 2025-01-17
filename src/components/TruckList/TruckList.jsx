@@ -10,9 +10,7 @@ const TruckList = () => {
   if (!filteredItems || filteredItems.length === 0) {
     return <p>Немає доступних даних</p>;
   }
-  // if (!campers || campers.length === 0) {
-  //   return <p>No data available...</p>;
-  // }
+
   return (
     <ul>
       {filteredItems.map(truck => (
