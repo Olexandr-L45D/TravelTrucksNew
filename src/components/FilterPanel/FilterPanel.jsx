@@ -60,7 +60,7 @@ import css from "./FilterPanel.module.css";
 
 import { useDispatch } from "react-redux";
 
-import { setFilter } from "../../redux/campers/slice";
+import { setFilter } from "../../redux/filters/slice";
 
 const FilterPanel = () => {
   const dispatch = useDispatch();

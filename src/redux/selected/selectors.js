@@ -1,7 +1,5 @@
 // export const selectIsLoggedIn = (state) => state.auth.isLoggedIn;
 
-export const selectUser = state => state.selected.user;
-
 import { createSelector } from "@reduxjs/toolkit";
 
 export const selectFilters = state => state.campers.filters;

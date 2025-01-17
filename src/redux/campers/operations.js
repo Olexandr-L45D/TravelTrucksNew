@@ -11,9 +11,9 @@ export const fetchAllTruck = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get("/campers");
-      // При успішному запиті повертаємо проміс із даними з бекенду
-      console.log("Дані з API:", response.data); // Перевірте, чи це масив
-      return Array.isArray(response.data) ? response.data : []; // Повертаємо масив або порожній масив
+      const data = await response.json();
+      return data.items;
+      // return Array.isArray(response.data) ? response.data : []; // Повертаємо масив або порожній масив
       // return response.data;
     } catch (e) {
       // При помилці запиту повертаємо проміс, який буде відхилений з текстом помилки

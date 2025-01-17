@@ -10,6 +10,8 @@ export const selectError = state => state.campers.error;
 
 export const selectTrucs = state => state.campers.items;
 
+export const selectItems = state => state.campers.items;
+
 export const selectOutCampers = createSelector(
   [selectTrucs, selectFilteredItems],
   (campers, filter) => {
