@@ -1,0 +1,53 @@
+/* style */
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.cartTitle {
+    padding: 2px;
+    margin: 2px;
+    color: rgb(14, 11, 214);
+    font-size: 2em;
+    font-weight: 900;
+    line-height: 2;
+}
+
+.cartText {
+    padding: 2px;
+    margin: 2px;
+    color: black;
+    font-size: 1em;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.cartIcon {
+    width: 80px;
+    height: 80px;
+    margin: 5px;
+    margin-bottom: 0px;
+    padding: 0px;
+}
+
+.background {
+    min-height: calc(100vh - 56px);
+    overflow: hidden;
+    background-image: url('../../images/Container.jpg'),
+        url('../../images/Pic.jpg');
+    background-repeat: no-repeat, no-repeat;
+    background-size: 100%, 280px 210px;
+    /* background-position: top 52px left 0, top 394px center; */
+}
