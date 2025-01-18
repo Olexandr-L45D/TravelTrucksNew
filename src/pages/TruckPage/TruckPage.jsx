@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchAllTruck } from "../../redux/campers/operations";
 import { selectLoading } from "../../redux/campers/selectors";
 import AllTruckList from "../../components/AllTruckList/AllTruckList";
+import Loader from "../../components/Loader/Loader";
+import UserMenu from "../../components/UserMenu/UserMenu";
 
 export default function TruckPage() {
   const dispatch = useDispatch();
@@ -28,9 +30,9 @@ export default function TruckPage() {
   }, [dispatch]);
 
   return (
-    <div className={css.cartPage}>
-      <h1 className={css.cartTitle}>Your All Panel</h1>
-      <div>{isLoading && "Request in progress..."}</div>
+    <div className={css.cartAllPage}>
+      <UserMenu />
+      <div>{isLoading && <Loader />}</div>
       <AllTruckList trucks={trucks} />
     </div>
   );

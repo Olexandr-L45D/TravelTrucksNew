@@ -16,3 +16,30 @@
     padding-bottom: 0px;
     margin: 0px;
 }
+
+.buttonIconSearch {
+    width: 166px;
+    height: 56px;
+    padding: 0px;
+    margin: 10px;
+    margin-left: 15px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    border-radius: 40px;
+}
+
+.btnSearch {
+    width: 166px;
+    height: 56px;
+    font-size: 18px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e44848;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 40px;
+    color: #fff;
+}

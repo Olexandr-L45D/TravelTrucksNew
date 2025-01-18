@@ -8,9 +8,9 @@ export default function UserMenu() {
 
   return (
     <div className={css.wrapper}>
-      <h1 className={css.cartTitle}>Your FilterPanel Card </h1>
-      <SearchBox />
+      <h1 className={css.cartTitle}>FilterPanel</h1>
       <FilterPanel />
+      <SearchBox />
     </div>
   );
 }

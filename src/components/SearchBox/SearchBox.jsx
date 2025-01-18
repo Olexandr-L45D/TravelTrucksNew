@@ -24,7 +24,7 @@ export default function SearchBox() {
 
   return (
     <div className={css.item}>
-      <h5 className={css.paragraf}>Finde truck by name</h5>
+      <h5 className={css.paragraf}>Finde truck by location</h5>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -32,9 +32,11 @@ export default function SearchBox() {
           value={filter}
           onChange={handleFilterChange}
         />
-        <button className={css.btn} type="submit">
-          Search
-        </button>
+        <div className={css.buttonIconSearch}>
+          <button className={css.btnSearch} type="submit">
+            Search
+          </button>
+        </div>
       </form>
     </div>
   );
