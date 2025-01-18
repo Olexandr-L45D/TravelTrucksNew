@@ -11,10 +11,9 @@ export const fetchAllTruck = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get("/campers");
-      const data = await response.json();
-      return data.items;
-      // return Array.isArray(response.data) ? response.data : []; // Повертаємо масив або порожній масив
-      // return response.data;
+
+      return response.data.items;
+      // `axios` автоматично повертає вже розпарсений JSON у response.data
     } catch (e) {
       // При помилці запиту повертаємо проміс, який буде відхилений з текстом помилки
       return thunkAPI.rejectWithValue(e.message);
@@ -25,8 +24,8 @@ export const gindById = createAsyncThunk(
   "campers/gindById",
   async (id, thunkAPI) => {
     try {
-      const res = await axios.get(`/campers/${id}`);
-      return res.data;
+      const response = await axios.get(`/campers/${id}`);
+      return response.data.items.id;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }

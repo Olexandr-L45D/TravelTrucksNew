@@ -1,1 +1,42 @@
 /* AllTruckList */
+.container {
+    width: 1200px;
+    height: auto;
+    margin: 2px;
+    margin-left: 10px;
+    padding: 2px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 200px);
+    gap: 16px;
+}
+
+.list {
+    width: 1200px;
+    height: auto;
+    margin: 1px;
+    margin-left: 20px;
+    padding: 1px;
+}
+
+.titles {
+    color: black;
+    margin: 0px;
+    margin-left: 10px;
+    padding: 0px;
+}
+
+.cardWrapper {
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.cardWrapper a {
+    text-decoration: none;
+}
+
+.productName {
+    padding: 4px;
+    margin-top: 8px;
+    margin-bottom: 0;
+    color: black;
+}
