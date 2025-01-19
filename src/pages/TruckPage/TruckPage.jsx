@@ -1,21 +1,27 @@
 import css from "./TruckPage.module.css";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import TruckList from "../../components/TruckList/TruckList";
 import { fetchAllTruck } from "../../redux/campers/operations";
 import { selectLoading } from "../../redux/campers/selectors";
 import AllTruckList from "../../components/AllTruckList/AllTruckList";
 import Loader from "../../components/Loader/Loader";
-import UserMenu from "../../components/UserMenu/UserMenu";
+import SearchBoxFiltr from "../../components/SearchBoxFiltr/SearchBoxFiltr";
+
+// import debounce from 'lodash.debounce';
+
+// const handleSearch = debounce(async (query) => {
+//   try {
+//     const response = await axios.get(`https://66b1f8e....mockapi.io/campers?search=${query}`);
+//     setData(response.data);
+//   } catch (error) {
+//     console.error('Error loading data...', error);
+//   }
+// }, 500); // Затримка 500 мс
 
 export default function TruckPage() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectLoading);
   const [trucks, setTrucks] = useState([]);
-
-  // useEffect(() => {
-  //   dispatch(fetchAllTruck()); // Завантажуємо дані без локального стану
-  // }, [dispatch]);
 
   useEffect(() => {
     async function fetchData() {
@@ -23,31 +29,42 @@ export default function TruckPage() {
         const data = await dispatch(fetchAllTruck()).unwrap();
         setTrucks(data);
       } catch (error) {
-        console.error("Помилка завантаження даних:", error);
+        if (error.response?.status === 429) {
+          // Перевіряємо статус відповіді
+          console.error("Rate limit exceeded, retrying...");
+          setTimeout(() => {
+            fetchData(); // Викликаємо функцію повторно через 5 секунд
+          }, 5000);
+        } else {
+          console.error("Error loading data...", error);
+        }
       }
     }
-    fetchData();
+
+    fetchData(); // Виклик функції
   }, [dispatch]);
+
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     try {
+  //       const data = await dispatch(fetchAllTruck()).unwrap();
+  //       setTrucks(data);
+  //     } catch (error) {
+  //       console.error("Error loading data...:", error);
+  //     }
+  //   }
+  //   fetchData();
+  // }, [dispatch]);
 
   return (
     <div className={css.cartAllPage}>
-      <UserMenu />
+      <SearchBoxFiltr />
       <div>{isLoading && <Loader />}</div>
       <AllTruckList trucks={trucks} />
     </div>
   );
 }
 
-// const [campers, setProduct] = useState([]);
 // useEffect(() => {
-//   async function fetchData() {
-//     try {
-//       const data = await dispatch(fetchAllTruck()).unwrap();
-//       setProduct(data);
-//     } catch (error) {
-//       console.error("Помилка завантаження даних:", error);
-//     }
-//   }
-//   fetchData();
+//   dispatch(fetchAllTruck()); // Завантажуємо дані без локального стану
 // }, [dispatch]);
-// campers.length > 0 && <ContactList campers={campers} />;

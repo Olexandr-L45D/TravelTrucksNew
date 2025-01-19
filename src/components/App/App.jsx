@@ -5,34 +5,26 @@ import { lazy, Suspense } from "react";
 
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
 
+// const TruckPageFilters = lazy(() =>
+//   import("../../pages/TruckPageFilters/TruckPageFilters")
+// );
 const TruckPage = lazy(() => import("../../pages/TruckPage/TruckPage"));
+const TruckDetalsPage = lazy(() =>
+  import("../../pages/TruckDetalsPage/TruckDetalsPage")
+);
 const NotFoundPage = lazy(() => import("../../pages/NotFoundPage"));
 
 import { Layout } from "../Layout/Layout";
 
-// import PrivateRoute from "../../components/PrivateRoute";
-
 export default function App() {
-  // const dispatch = useDispatch();
-  // const isRefreshing = useSelector(selectIsRefreshing);
-  // // запит на ТОКЕН isRefreshing (чи валідний токен?)
-  // useEffect(() => {
-  //   dispatch(refreshUser());
-  // }, [dispatch]);
-
   return (
     <Layout>
       <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/catalog" element={<TruckPage />} />
+          <Route path="/catalog/:id" element={<TruckDetalsPage />} />
 
-          {/* <Route
-            path="/catalog"
-            element={
-              <PrivateRoute redirectTo="/:id" component={<UserMenu />} />
-            }
-          /> */}
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>

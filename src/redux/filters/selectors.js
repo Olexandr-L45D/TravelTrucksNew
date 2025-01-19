@@ -1,4 +1,3 @@
-// selector (selectStatusFilterNumber) selectStatusFilter
 
-export const selectStatusFilter = (state) => state.filters.filter;
 
+export const selectStatusFilter = state => state.filters.filters;

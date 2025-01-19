@@ -3,31 +3,35 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const filtersSlice = createSlice({
   name: "filters",
-  initialState: { filter: "" },
-  filters: {
-    name: "",
-    price: null,
-    rating: null,
-    location: "",
+  initialState: {
+    filters: {
+      location: "",
+      AC: true,
+      water: true,
+      engin: true,
+      kitchen: true,
+    },
   },
   reducers: {
     setChangeFilter: (state, action) => {
-      state.filter = action.payload;
+      state.filters = action.payload; // Оновлюємо всі фільтри
     },
     setFilter(state, action) {
       const { filterName, value } = action.payload;
       state.filters[filterName] = value; // Оновлюємо конкретний фільтр
     },
-    resetFilters(state) {
+    resetFilters: state => {
       state.filters = {
-        name: "",
-        price: null,
-        rating: null,
         location: "",
-      }; // Скидаємо фільтри
+        AC: false,
+        water: false,
+        engin: false,
+        kitchen: false,
+      };
     },
   },
 });
+
 export const { setChangeFilter, setFilter, resetFilters } =
   filtersSlice.actions;
 export const filtersReducer = filtersSlice.reducer;

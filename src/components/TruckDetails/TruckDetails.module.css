@@ -1,0 +1,319 @@
+/* TruckDetails */
+.container {
+    width: 1440px;
+    height: auto;
+    margin: 10px;
+    padding: 10px;
+    margin-top: 30px;
+    padding-top: 30px;
+    gap: 10px;
+    display: flex;
+    justify-content: start;
+    text-align: center;
+    align-items: center;
+}
+
+.titlesblok {
+    margin-top: 30px;
+    padding-top: 30px;
+    margin: 10px;
+    padding: 5px;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    text-align: center;
+    align-items: center;
+}
+
+.descripBl {
+    margin: 1px;
+    padding: 1px;
+    width: 100%;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+.titles {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.3;
+    color: black;
+    margin: 0px;
+    margin-left: 10px;
+    padding: 0px;
+}
+
+.cardWrapper a {
+    text-decoration: none;
+}
+
+.productName {
+    padding: 4px;
+    margin-top: 8px;
+    margin-bottom: 0;
+    color: black;
+}
+
+.cartContainer {
+    width: 1312px;
+    height: 800px;
+    padding-top: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    /* Тонка сіра рамка */
+    border-radius: 10px;
+    /* Невелике заокруглення */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    /* Легка тінь для об'єму */
+}
+
+.cartComent {
+    width: 524px;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.textPrice {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.3;
+    margin: 0px;
+    padding: 0px;
+    padding-right: 0px;
+    margin-left: 100px;
+}
+
+.textTitle {
+    margin: 5px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+}
+
+.text {
+    margin: 5px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: 14px;
+    /* Задає менший розмір шрифту */
+    line-height: 1.4;
+    /* Робить текст більш читабельним */
+    color: #555;
+}
+
+.textDescr {
+    width: 1000px;
+}
+
+.textdes {
+    width: 123px;
+    height: 48px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F2F4F7;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+}
+
+.textContainers {
+    width: 530px;
+    height: 300px;
+    margin: 10px;
+    padding: 10px;
+    /* background-color: #c7ccd3;
+    border: 1px solid rgba(0, 0, 0, 0.1); */
+}
+.textdesForm {
+    /* width: 525px;
+    height: 290px; */
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.textTitleVe {
+    display: flex;
+    justify-content: start;
+    align-items: left;
+    text-align: start;
+}
+.textdeskrip {
+    width: 525px;
+    height: 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.textTit {
+    padding: 0px;
+    margin: 0px;
+    width: 100px;
+    height: 15px;
+    justify-content: start;
+}
+.textTitle {
+    width: 100px;
+    height: 22px;
+    justify-content: start;
+}
+
+.texBec {
+margin-left: 300px;
+display: flex;
+justify-content: right;
+}
+.comIte {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 92px;
+    height: 138px;
+    background-color: gray;
+
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+}
+
+.error {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.icons {
+    width: 50px;
+    height: 25px;
+    padding: 0px;
+    margin: 0px;
+    color: rgb(255, 0, 34);
+    display: flex;
+    flex-direction: row;
+    text-align: right;
+    align-items: right;
+}
+
+.buttonIconShowe {
+    width: 166px;
+    height: 56px;
+    padding: 0px;
+    margin: 0px;
+    margin-left: 15px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    border-radius: 40px;
+}
+
+.btnShowe {
+    width: 166px;
+    height: 56px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e44848;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 40px;
+    color: #fff;
+}
+
+.img {
+    width: 292px;
+    height: 312px;
+    padding: 2px;
+    margin: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    /* Тонка сіра рамка */
+    border-radius: 10px;
+    /* Невелике заокруглення */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    /* Легка тінь для об'єму */
+}
+
+.imgCardBloc {
+display: flex;
+flex-direction: row;
+text-align: center;
+align-items: center;
+}
+.imgCard {
+    width: 292px;
+    height: 312px;
+    padding: 1px;
+    margin: 1px;
+}
+.blocBotContainers {
+    display: flex;
+        flex-direction: row;
+        text-align: center;
+        align-items: center;
+}
+.textContainerses {
+    width: 300px;
+    height: 200px;
+    display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        padding: 2px;
+            margin: 2px;
+            
+}
+
+.buttonIconSearch {
+    width: 166px;
+    height: 56px;
+    padding: 0px;
+    margin: 10px;
+    margin-left: 15px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    border-radius: 40px;
+}
+
+.btnSearch {
+    width: 166px;
+    height: 56px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e44848;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 40px;
+    color: #fff;
+}

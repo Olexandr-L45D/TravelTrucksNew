@@ -20,38 +20,34 @@ export const fetchAllTruck = createAsyncThunk(
     }
   }
 );
-export const gindById = createAsyncThunk(
-  "campers/gindById",
+
+export const findTruckById = createAsyncThunk(
+  "campers/findTruckById",
   async (id, thunkAPI) => {
     try {
       const response = await axios.get(`/campers/${id}`);
-      return response.data.items.id;
+      return response.data; // Повертаємо об'єкт, який прийшов із сервера
     } catch (error) {
-      return thunkAPI.rejectWithValue(error);
+      // Перевіряємо, чи це AxiosError, і передаємо серіалізовану інформацію
+      return thunkAPI.rejectWithValue({
+        status: error.response?.status,
+        message: error.message,
+      });
     }
   }
 );
 
-// const res = await axios.delete('/contacts/{contactId}');
 //тут в фалі запитів це оголошення 3 операції (1-ша - запит на базовий УРЛ для відмалювання всих контактів - axios.defaults.baseURL, addContact, deleteContact)
 // "tasks/fetchAll/pending" - початок запиту
 // "tasks/fetchAll/fulfilled" - успішне завершення запиту
 // "tasks/fetchAll/rejected" - завершення запиту з помилкою
-// початковий варіант запиту без відпрацювання станів з помилками:
-// export const fetchTasks = createAsyncThunk("contacts/fetchAll", async () => {
-//     const response = await axios.get("/contacts");
-//     return response.data;
-// });
 
-// deleteContact При успішному запиті повертаємо проміс із даними з бекенду для видалення шукаєм по id - contactId
-// (ця не працює а верхня з шаблонним рядком і зн долар працює (`/contacts/${contactId}`))
-// export const deleteContact = createAsyncThunk("contacts/deleteContact",
-//     async (contactId, thunkAPI) => {
-//         try {
-//             const response = await axios.delete("/contacts", { contactId });
-//             return response.data;
-//         } catch (e) {
-//             return thunkAPI.rejectWithValue(e.message);
-//         }
-//     }
-// );
+// return {
+//   title: response.data.title,
+//   poster_path: response.data.poster_path,
+//   release_date: response.data.release_date,
+//   vote_average: response.data.vote_average,
+//   overview: response.data.overview,
+//   status: response.data.status,
+//   // genres: { id: response.data.id, name: response.data.name },
+// };

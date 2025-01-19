@@ -1,0 +1,51 @@
+/* TruckDetalsPage */
+.container {
+    width: 1440px;
+    height: auto;
+    margin-top: 50px;
+    padding-top: 50px;
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.cartTitle {
+    padding: 2px;
+    margin: 2px;
+    color: rgb(14, 11, 214);
+    font-size: 2em;
+    font-weight: 900;
+    line-height: 2;
+}
+
+.cartText {
+    padding: 2px;
+    margin: 2px;
+    color: black;
+    font-size: 1em;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.cartIcon {
+    width: 80px;
+    height: 80px;
+    margin: 5px;
+    margin-bottom: 0px;
+    padding: 0px;
+}
+
+.background {
+    background-color: aquamarine;
+    
+}
