@@ -5,10 +5,10 @@ import { lazy, Suspense } from "react";
 
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
 
-// const TruckPageFilters = lazy(() =>
-//   import("../../pages/TruckPageFilters/TruckPageFilters")
-// );
-const TruckPage = lazy(() => import("../../pages/TruckPage/TruckPage"));
+const TruckPageFilters = lazy(() =>
+  import("../../pages/TruckPageFilters/TruckPageFilters")
+);
+// const TruckPage = lazy(() => import("../../pages/TruckPage/TruckPage"));
 const TruckDetalsPage = lazy(() =>
   import("../../pages/TruckDetalsPage/TruckDetalsPage")
 );
@@ -22,7 +22,7 @@ export default function App() {
       <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/catalog" element={<TruckPage />} />
+          <Route path="/catalog" element={<TruckPageFilters />} />
           <Route path="/catalog/:id" element={<TruckDetalsPage />} />
 
           <Route path="*" element={<NotFoundPage />} />
@@ -31,3 +31,7 @@ export default function App() {
     </Layout>
   );
 }
+
+/* <Route path="features" element={<TruckFeatures />} /> */
+// <Route path="reviews" element={<TruckReviews />} />
+/* <Route path="/catalog" element={<TruckPage />} />; */

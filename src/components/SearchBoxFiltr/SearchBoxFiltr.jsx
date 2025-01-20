@@ -6,13 +6,15 @@ import { selectStatusFilter } from "../../redux/filters/selectors";
 
 import { useSearchParams } from "react-router-dom";
 import { useState } from "react";
+import { useCallback } from "react";
 
 export default function SearchBoxFiltr() {
   const dispatch = useDispatch();
-  const filter = useSelector(selectStatusFilter);
+  const filter = useSelector(selectStatusFilter); // Отримуємо фільтр із Redux
   const [params, setParams] = useSearchParams();
   const [error, setError] = useState("");
 
+  // Обробка форми
   const handleSubmit = event => {
     event.preventDefault();
     const locationValue = event.target.elements.owner.value.trim();
@@ -24,34 +26,53 @@ export default function SearchBoxFiltr() {
     setError(""); // Скидаємо помилку, якщо введення валідне
     params.set("owner", locationValue);
     setParams(params);
+    dispatch(setFilter({ filterName: "location", value: locationValue })); // Оновлюємо Redux-стан
     event.target.reset();
   };
 
-  const handleOptionClick = option => {
-    dispatch(
-      setFilter({
-        filterName: option,
-        value: !filter?.filters?.[option], // Додано перевірку на існування `filters`
-      })
-    );
-  };
-
+  // Обробка кліку на опцію
+  // const handleOptionClick = option => {
+  //   dispatch(
+  //     setFilter({
+  //       filterName: option,
+  //       value: !filter?.filters?.[option], // Перевірка на існування `filters`
+  //     })
+  //   );
+  // };
+  const handleOptionClick = useCallback(
+    option => {
+      dispatch(
+        setFilter({
+          filterName: option,
+          value: !filter?.filters?.[option], // Перевірка на існування `filters`
+        })
+      );
+    },
+    [dispatch, filter]
+  );
+  // Зміна місця розташування
   const handleLocationChange = event => {
     const locationValue = event.target.value;
-    dispatch(setFilter({ filterName: "location", value: locationValue })); // Оновлюємо фільтр
+    dispatch(setFilter({ filterName: "location", value: locationValue }));
   };
 
-  if (!filter?.filters) {
-    // Якщо `filter.filters` не визначений, повертаємо повідомлення
+  // Якщо `filters` не визначений
+  // if (!filter || !filter.filters) {
+  //   return <p>Loading filters...</p>;
+  // }
+
+  if (!filter || Object.keys(filter).length === 0) {
     return <p>Loading filters...</p>;
   }
 
+  // Скидання фільтрів
   const handleReset = () => {
     dispatch(resetFilters());
   };
+
   return (
     <div className={css.item}>
-      <h5 className={css.paragraf}>Finde truck by location</h5>
+      <h5 className={css.paragraf}>Find truck by location</h5>
       <form onSubmit={handleSubmit}>
         <label className={css.label}>
           Location:
@@ -132,7 +153,9 @@ export default function SearchBoxFiltr() {
             </p>
           </div>
         </div>
-        <button onClick={handleReset}>Reset Filters</button>
+        <button type="button" onClick={handleReset}>
+          Reset Filters
+        </button>
         <div className={css.buttonIconSearch}>
           {error && <p className={css.error}>{error}</p>}
           <button className={css.btnSearch} type="submit">

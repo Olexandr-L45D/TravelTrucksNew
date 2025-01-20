@@ -37,17 +37,16 @@ export const findTruckById = createAsyncThunk(
   }
 );
 
-//тут в фалі запитів це оголошення 3 операції (1-ша - запит на базовий УРЛ для відмалювання всих контактів - axios.defaults.baseURL, addContact, deleteContact)
-// "tasks/fetchAll/pending" - початок запиту
-// "tasks/fetchAll/fulfilled" - успішне завершення запиту
-// "tasks/fetchAll/rejected" - завершення запиту з помилкою
-
-// return {
-//   title: response.data.title,
-//   poster_path: response.data.poster_path,
-//   release_date: response.data.release_date,
-//   vote_average: response.data.vote_average,
-//   overview: response.data.overview,
-//   status: response.data.status,
-//   // genres: { id: response.data.id, name: response.data.name },
-// };
+export const reservation = createAsyncThunk(
+  "campers/reservation",
+  async (credentials, thunkAPI) => {
+    try {
+      const response = await axios.post("/campers/reservation", credentials);
+      // After successful reservation, add the token to the HTTP header
+      // setAuthHeader(response.data.token);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

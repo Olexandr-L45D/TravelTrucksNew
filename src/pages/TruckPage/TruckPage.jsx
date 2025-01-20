@@ -44,18 +44,6 @@ export default function TruckPage() {
     fetchData(); // Виклик функції
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     try {
-  //       const data = await dispatch(fetchAllTruck()).unwrap();
-  //       setTrucks(data);
-  //     } catch (error) {
-  //       console.error("Error loading data...:", error);
-  //     }
-  //   }
-  //   fetchData();
-  // }, [dispatch]);
-
   return (
     <div className={css.cartAllPage}>
       <SearchBoxFiltr />
@@ -64,7 +52,3 @@ export default function TruckPage() {
     </div>
   );
 }
-
-// useEffect(() => {
-//   dispatch(fetchAllTruck()); // Завантажуємо дані без локального стану
-// }, [dispatch]);

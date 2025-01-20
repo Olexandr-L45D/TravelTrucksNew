@@ -12,40 +12,45 @@ export default function TruckPageFilters() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectLoading);
   const filteres = useSelector(selectStatusFilter); // Додано
-  const [filters, setFilters] = useState(null); // Ініціалізуємо стан
-  const [allTrucks, setAllTrucks] = useState([]);
-  const [filteredTrucks, setFilteredTrucks] = useState([]);
-  // const trucks = useSelector(state => state.campers.trucks);
-  //   const status = useSelector(state => state.campers.status);
+  const [allTrucks, setAllTrucks] = useState([]); // Всі вантажівки
+  const [filteredTrucks, setFilteredTrucks] = useState([]); // Фільтровані вантажівки
+  // const trucks = useSelector(state => state.campers.items); // Приклад вибірки з Redux
+  const isFetched = useSelector(state => state.campers.isFetched); // Флаг стану
 
+  // useEffect(() => {
+  //   if (!isFetched) {
+  //     dispatch(fetchTrucks());
+  //   }
+  // }, [dispatch, isFetched]);
+
+  // Завантаження даних
   useEffect(() => {
     async function fetchData() {
       try {
-        const data = await dispatch(fetchAllTruck()).unwrap();
-        setAllTrucks(data);
-        setFilteredTrucks(data); // Встановлюємо початковий стан
+        if (!isFetched) {
+          const data = await dispatch(fetchAllTruck()).unwrap();
+          setAllTrucks(data); // Зберігаємо всі вантажівки
+          setFilteredTrucks(data); // Встановлюємо початковий стан для фільтрації
+        }
       } catch (error) {
-        console.error("Error loading data...:", error);
+        if (error.response?.status === 429) {
+          console.error("Rate limit exceeded, retrying...");
+          setTimeout(() => {
+            fetchData(); // Викликаємо функцію повторно через 5 секунд
+          }, 5000);
+        } else {
+          console.error("Error loading data...", error);
+        }
       }
     }
+
     fetchData();
-  }, [dispatch]);
-  // юзефект до початкового стану фільтра setFilters(data)
+  }, [dispatch, isFetched]);
 
+  // Фільтрація даних
   useEffect(() => {
-    const loadData = async () => {
-      try {
-        const trucks = await dispatch(fetchAllTruck());
+    if (!filteres || allTrucks.length === 0) return; // Перевіряємо, чи є дані для фільтрації
 
-        setFilters(trucks);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-    loadData();
-  }, [dispatch]);
-  // Логіка фільтрації
-  useEffect(() => {
     const filtered = allTrucks.filter(truck => {
       const matchesLocation = filteres.location
         ? truck.location.toLowerCase().includes(filteres.location.toLowerCase())
@@ -62,10 +67,20 @@ export default function TruckPageFilters() {
   }, [filteres, allTrucks]);
 
   return (
-    <div className={css.cartAllPage}>
-      <SearchBoxFiltr filters={filters} />
-      <div>{isLoading && <Loader />}</div>
-      <AllTruckList trucks={filteredTrucks} />
-    </div>
+    <>
+      <div className={css.cartAllPage}>
+        <SearchBoxFiltr filters={filteredTrucks} />
+        <div>{isLoading && <Loader />}</div>
+        <AllTruckList trucks={filteredTrucks} />
+      </div>
+    </>
   );
 }
+
+//  {filteredTrucks?.length > 0 && <AllTruckList trucks={filteredTrucks} />} */ Переконайтеся, що передаєте в trucks лише готові дані. Наприклад, використовуйте умовне рендерення у батьківському компоненті:
+// Розділіть стан allTrucks і filteredTrucks:
+// Збережіть усі дані (allTrucks) окремо та використовуйте інший стан для фільтрованих даних (filteredTrucks).
+// Перевірка filteres і trucks у фільтрі:
+// Додайте перевірку, чи дані взагалі існують, перед виконанням фільтрації.
+// Оптимізація useEffect:
+// Заберіть залежність trucks із другого useEffect, щоб уникнути викликів через оновлення масиву вантажівок.

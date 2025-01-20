@@ -6,6 +6,7 @@ const campersSlice = createSlice({
   initialState: {
     items: [],
     loading: false,
+    isFetched: false,
     error: null,
     selectedTruck: null, // Для збереження деталей вантажівки
   },
@@ -19,6 +20,7 @@ const campersSlice = createSlice({
         // state.items = action.payload; // Зберігаємо масив вантажівок
         state.items = action.payload.items || [];
         state.loading = false;
+        state.isFetched = true;
       })
       .addCase(fetchAllTruck.rejected, (state, action) => {
         state.loading = false;
