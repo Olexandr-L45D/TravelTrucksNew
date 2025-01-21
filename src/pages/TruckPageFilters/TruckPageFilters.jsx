@@ -17,13 +17,6 @@ export default function TruckPageFilters() {
   // const trucks = useSelector(state => state.campers.items); // Приклад вибірки з Redux
   const isFetched = useSelector(state => state.campers.isFetched); // Флаг стану
 
-  // useEffect(() => {
-  //   if (!isFetched) {
-  //     dispatch(fetchTrucks());
-  //   }
-  // }, [dispatch, isFetched]);
-
-  // Завантаження даних
   useEffect(() => {
     async function fetchData() {
       try {
@@ -77,10 +70,3 @@ export default function TruckPageFilters() {
   );
 }
 
-//  {filteredTrucks?.length > 0 && <AllTruckList trucks={filteredTrucks} />} */ Переконайтеся, що передаєте в trucks лише готові дані. Наприклад, використовуйте умовне рендерення у батьківському компоненті:
-// Розділіть стан allTrucks і filteredTrucks:
-// Збережіть усі дані (allTrucks) окремо та використовуйте інший стан для фільтрованих даних (filteredTrucks).
-// Перевірка filteres і trucks у фільтрі:
-// Додайте перевірку, чи дані взагалі існують, перед виконанням фільтрації.
-// Оптимізація useEffect:
-// Заберіть залежність trucks із другого useEffect, щоб уникнути викликів через оновлення масиву вантажівок.

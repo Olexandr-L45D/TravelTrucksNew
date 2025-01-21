@@ -1,11 +1,9 @@
-/* TruckDetails */
+
 .container {
     width: 1440px;
     height: auto;
     margin: 10px;
     padding: 10px;
-    /* margin-top: 30px;
-    padding-top: 60px; */
     gap: 10px;
     display: flex;
     justify-content: start;
@@ -16,18 +14,14 @@
 .cartContainer {
     width: 1312px;
     height: auto;
-    /* height: 900px; */
-    /* padding-top: 100px; */
     display: flex;
     flex-direction: row;
     justify-content: start;
     gap: 10px;
     border: 1px solid rgba(0, 0, 0, 0.1);
-    /* Тонка сіра рамка */
     border-radius: 10px;
-    /* Невелике заокруглення */
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    /* Легка тінь для об'єму */
+
 }
 
 .cartComent {
@@ -147,8 +141,6 @@
 }
 
 .textdesForm {
-    /* width: 525px;
-    height: 290px; */
     font-weight: 500;
     font-size: 16px;
     line-height: 1.5;
@@ -482,7 +474,6 @@ margin-right: 40px;
 background-color:#ffffff;
 border: 1px solid rgba(223, 19, 46, 0.1);
 position: relative;
-    /* потрібне для псевдоелементів */
 }
 .active::after {
     content: "";

@@ -7,17 +7,6 @@ import AllTruckList from "../../components/AllTruckList/AllTruckList";
 import Loader from "../../components/Loader/Loader";
 import SearchBoxFiltr from "../../components/SearchBoxFiltr/SearchBoxFiltr";
 
-// import debounce from 'lodash.debounce';
-
-// const handleSearch = debounce(async (query) => {
-//   try {
-//     const response = await axios.get(`https://66b1f8e....mockapi.io/campers?search=${query}`);
-//     setData(response.data);
-//   } catch (error) {
-//     console.error('Error loading data...', error);
-//   }
-// }, 500); // Затримка 500 мс
-
 export default function TruckPage() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectLoading);

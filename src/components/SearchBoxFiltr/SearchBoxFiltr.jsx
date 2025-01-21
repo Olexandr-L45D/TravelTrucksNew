@@ -13,7 +13,6 @@ export default function SearchBoxFiltr() {
   const filter = useSelector(selectStatusFilter); // Отримуємо фільтр із Redux
   const [params, setParams] = useSearchParams();
   const [error, setError] = useState("");
-
   // Обробка форми
   const handleSubmit = event => {
     event.preventDefault();
@@ -30,15 +29,6 @@ export default function SearchBoxFiltr() {
     event.target.reset();
   };
 
-  // Обробка кліку на опцію
-  // const handleOptionClick = option => {
-  //   dispatch(
-  //     setFilter({
-  //       filterName: option,
-  //       value: !filter?.filters?.[option], // Перевірка на існування `filters`
-  //     })
-  //   );
-  // };
   const handleOptionClick = useCallback(
     option => {
       dispatch(
@@ -55,16 +45,10 @@ export default function SearchBoxFiltr() {
     const locationValue = event.target.value;
     dispatch(setFilter({ filterName: "location", value: locationValue }));
   };
-
   // Якщо `filters` не визначений
-  // if (!filter || !filter.filters) {
-  //   return <p>Loading filters...</p>;
-  // }
-
   if (!filter || Object.keys(filter).length === 0) {
     return <p>Loading filters...</p>;
   }
-
   // Скидання фільтрів
   const handleReset = () => {
     dispatch(resetFilters());
@@ -85,19 +69,19 @@ export default function SearchBoxFiltr() {
         </label>
         <h4>Vehicle equipment</h4>
         <div className={css.itemsCont}>
-          <div className={css.items}>
+          {/* <div className={css.items}>
             <p
               className={`${css.iconCard} ${
-                filter.filters.water ? css.active : ""
+                filter.filters.AC ? css.active : ""
               }`}
-              onClick={() => handleOptionClick("water")}
+              onClick={() => handleOptionClick("AC")}
             >
               <svg className={css.icon}>
                 <use href={`${sprite}#icon-ac`} />
               </svg>
               AC
             </p>
-          </div>
+          </div> */}
           <div className={css.items}>
             <p
               className={`${css.iconCard} ${
