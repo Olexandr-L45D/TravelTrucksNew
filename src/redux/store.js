@@ -35,6 +35,9 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
+      immutableCheck: {
+        warnAfter: 64, // Збільшити порогове значення до 64мс (або більше)
+      },
     }),
 });
 

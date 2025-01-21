@@ -528,3 +528,12 @@ position: relative;
     justify-content: start;
     align-items: center;
 }
+.booked {
+    color: red;
+    font-weight: bold;
+}
+
+.available {
+    color: green;
+    font-weight: bold;
+}

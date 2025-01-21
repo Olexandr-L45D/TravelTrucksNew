@@ -39,14 +39,28 @@ export const findTruckById = createAsyncThunk(
 
 export const reservation = createAsyncThunk(
   "campers/reservation",
-  async (credentials, thunkAPI) => {
+  async (data, thunkAPI) => {
     try {
-      const response = await axios.post("/campers/reservation", credentials);
-      // After successful reservation, add the token to the HTTP header
-      // setAuthHeader(response.data.token);
+      const response = await axios.post("/campers/reservation", data, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
+
+// export const reservation = createAsyncThunk(
+//   "campers/reservation",
+//   async (credentials, thunkAPI) => {
+//     try {
+//       const response = await axios.post("/campers/reservation", credentials);
+//       return response.data; // Передаємо дані в reducer
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );

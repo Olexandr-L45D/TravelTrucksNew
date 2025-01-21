@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchAllTruck, findTruckById } from "./operations";
+import { fetchAllTruck, findTruckById, reservation } from "./operations";
 
 const campersSlice = createSlice({
   name: "campers",
@@ -9,6 +9,9 @@ const campersSlice = createSlice({
     isFetched: false,
     error: null,
     selectedTruck: null, // Для збереження деталей вантажівки
+    isBooked: false,
+    id: 1,
+    name: "Truck Name",
   },
   reducers: {},
   extraReducers: builder => {
@@ -37,6 +40,22 @@ const campersSlice = createSlice({
       .addCase(findTruckById.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload; // Серіалізовані дані про помилку
+      })
+      .addCase(reservation.fulfilled, (state, action) => {
+        const truckIndex = state.trucks.findIndex(
+          truck => truck.id === action.payload.truckId
+        );
+        if (truckIndex >= 0) {
+          state.trucks[truckIndex].isBooked = true; // Оновлюємо статус
+        }
+        state.loading = false;
+      })
+      .addCase(reservation.pending, state => {
+        state.loading = true;
+      })
+      .addCase(reservation.rejected, (state, action) => {
+        state.error = action.payload;
+        state.loading = false;
       });
   },
 });

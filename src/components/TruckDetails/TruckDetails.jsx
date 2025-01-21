@@ -190,6 +190,13 @@ const TruckDetails = ({ id }) => {
               </h4>
               <div className={css.blocForm}>
                 <BookingForm />
+                <div className={css.status}>
+                  {selectedTruck.isBooked ? (
+                    <p className={css.booked}>This vehicle is already booked</p>
+                  ) : (
+                    <p className={css.available}>Available for booking</p>
+                  )}
+                </div>
               </div>
             </div>
           </div>
