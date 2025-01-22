@@ -1,38 +1,26 @@
 
-.container {
-    width: 1440px;
-    height: auto;
-    margin: 10px;
-    padding: 10px;
-    gap: 10px;
-    display: flex;
-    justify-content: start;
-    text-align: center;
-    align-items: center;
+.cartBottomDetall {
+    width: 100%;
+    height: 588px;
+     /* height: auto; */
+     margin: 0px;
+     padding: 0px;
+     display: flex;
+     flex-direction: row;
+     justify-content: start;
+     gap: 10px;
+    background-color: #FFFFFF;
 }
-
-.cartContainer {
-    width: 1312px;
-    height: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    gap: 10px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-
-}
-
-.cartComent {
-    width: 1312px;
-    height: auto;
+.cartComentBloks {
+    width: 631px;
+    height: 588px;
     margin: 0px;
     padding: 0px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     gap: 10px;
+    background-color: #f7f7f7;
 }
 
 .titlesblok {
@@ -53,11 +41,11 @@
     margin: 1px;
     padding: 1px;
     width: 100%;
-    height: 20px;
+    height: auto;
     display: flex;
     flex-direction: row;
     justify-content: start;
-    background-color: #f7f7f7;
+
 }
 
 .titles {
@@ -89,13 +77,14 @@
     justify-content: start;
 
 }
+
 .textPrice {
     font-weight: 600;
     font-size: 24px;
     line-height: 1.3;
     margin: 0px;
     padding: 0px;
-    
+
 }
 
 .textTitle {
@@ -136,10 +125,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #F2F4F7;
+    background-color: #dadde1;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 30px;
-   
+
 }
 
 .textdesForm {
@@ -153,7 +142,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+
 }
 
 .iconhed {
@@ -168,12 +157,14 @@
     justify-content: center;
     align-items: center;
 }
+
 .textTitlesBl {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
+
 .descripBloc {
     margin: 2px;
     margin-left: 10px;
@@ -186,17 +177,19 @@
     text-align: center;
     align-items: center;
 }
+
 .descripBlo {
     margin: 2px;
-        padding: 2px;
-        width: 100px;
-        height: 25px;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        text-align: center;
-        align-items: center;
+    padding: 2px;
+    width: 100px;
+    height: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
 }
+
 .iconhed {
     width: 25px;
     height: 25px;
@@ -205,7 +198,7 @@
     line-height: 1.2;
     padding: 0px;
     margin: 0px;
-    
+
 }
 
 .loched {
@@ -216,6 +209,7 @@
     padding: 0px;
     margin: 0px;
 }
+
 .textTitleL {
     width: 200px;
     height: 30px;
@@ -234,6 +228,7 @@
     align-items: left;
     text-align: start;
 }
+
 .descripSe {
     margin: 0px;
     margin-left: 20px;
@@ -243,6 +238,7 @@
     flex-direction: row;
     align-items: center;
 }
+
 .textdeskrip {
     margin: 0px;
     margin-left: 10px;
@@ -264,6 +260,7 @@
     height: 15px;
     justify-content: start;
 }
+
 .textTitle {
     width: 100px;
     height: 22px;
@@ -271,10 +268,11 @@
 }
 
 .texBec {
-margin-left: 300px;
-display: flex;
-justify-content: right;
+    margin-left: 300px;
+    display: flex;
+    justify-content: right;
 }
+
 .comIte {
     display: flex;
     justify-content: center;
@@ -347,11 +345,12 @@ justify-content: right;
 }
 
 .imgCardBloc {
-display: flex;
-flex-direction: row;
-text-align: center;
-align-items: center;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
 }
+
 .imgCard {
     width: 292px;
     height: 312px;
@@ -360,24 +359,26 @@ align-items: center;
 }
 
 .blocBotContainers {
-width: 1300px;
-height: 588px;
-margin: 5px;
-display: flex;
-flex-direction: row;
-text-align: center;
-align-items: center;
-justify-content: center;
-/* background-color: #f7f7f7; */
+    width: 1300px;
+    height: 588px;
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    
 }
+
 .textContainers {
     width: 630px;
     height: 580px;
     margin: 0px;
     margin-right: 20px;
+    margin-top: 20px;
     padding: 0px;
-    background-color: #f2f4f7;
 }
+
 .textContainerses {
     width: 630px;
     height: 580px;
@@ -388,7 +389,7 @@ justify-content: center;
     padding: 0px;
     margin: 2px;
     margin-left: 30px;
-            
+
 }
 
 .textTitleVeBlok {
@@ -402,6 +403,7 @@ justify-content: center;
     text-align: left;
     align-items: left;
 }
+
 .buttonIconSearch {
     width: 166px;
     height: 56px;
@@ -429,15 +431,15 @@ justify-content: center;
 }
 
 .blocTitleContainers {
-    width: 100%;
-    height: 100%;
+    height: 30px;
     margin-top: 40px;
     margin-bottom: 20px;
     display: flex;
-    flex-direction: column;
-    text-align: left;
-    align-items: left;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
 }
+
 .textTitlesBl {
     margin: 2px;
     padding: 2px;
@@ -460,24 +462,28 @@ justify-content: center;
     line-height: 1.5;
     color: #555;
 }
+
 .textTitles {
     padding: 5px;
     margin: 5px;
     margin-right: 50px;
 }
+
 .btnActivClik {
-width: 81px;
-height: 24px;
+    width: 81px;
+    height: 24px;
 }
+
 .btnActiv {
-font-weight: 600;
-font-size: 20px;
-line-height: 1.2;
-margin-right: 40px;
-background-color:#ffffff;
-border: 1px solid rgba(223, 19, 46, 0.1);
-position: relative;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.2;
+    margin-right: 40px;
+    background-color: #ffffff;
+    border: 1px solid rgba(223, 19, 46, 0.1);
+    position: relative;
 }
+
 .active::after {
     content: "";
     position: absolute;
@@ -488,6 +494,7 @@ position: relative;
     background-color: red;
     /* Червона лінія */
 }
+
 .textTitleTit {
     width: 600px;
     height: 30px;
@@ -501,6 +508,7 @@ position: relative;
     justify-content: start;
     align-items: center;
 }
+
 .textTitleTi {
     width: 600px;
     height: 30px;
@@ -514,6 +522,7 @@ position: relative;
     justify-content: start;
     align-items: center;
 }
+
 .blocForm {
     width: 100%;
     margin: 0px;
@@ -522,6 +531,7 @@ position: relative;
     justify-content: start;
     align-items: center;
 }
+
 .booked {
     color: red;
     font-weight: bold;
@@ -530,13 +540,4 @@ position: relative;
 .available {
     color: green;
     font-weight: bold;
-}
-.textTitlesBloLi {
-    margin: 0px;
-    padding: 0px;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    align-items: center;
-    list-style: none;
 }

@@ -37,28 +37,16 @@ export const findTruckById = createAsyncThunk(
   }
 );
 
-export const reservation = createAsyncThunk(
-  "campers/reservation",
-  async (data, thunkAPI) => {
-    try {
-      const response = await axios.post("/campers/reservation", data, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-
 // export const reservation = createAsyncThunk(
 //   "campers/reservation",
-//   async (credentials, thunkAPI) => {
+//   async (data, thunkAPI) => {
 //     try {
-//       const response = await axios.post("/campers/reservation", credentials);
-//       return response.data; // Передаємо дані в reducer
+//       const response = await axios.post("/campers/reservation", data, {
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//       });
+//       return response.data;
 //     } catch (error) {
 //       return thunkAPI.rejectWithValue(error.message);
 //     }

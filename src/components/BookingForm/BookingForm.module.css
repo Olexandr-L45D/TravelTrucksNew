@@ -65,3 +65,58 @@
     border-radius: 40px;
     color: #fff;
 }
+.formGroup {
+    padding: 2px;
+    margin-left: 2px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.formGroup label {
+    width: 150px;
+    /* Adjust the width as needed */
+    margin-right: 10px;
+    text-align: right;
+}
+
+.form-group input,
+.form-group textarea {
+    flex: 1;
+}
+
+.inptextarea {
+    resize: none;
+    /* Прибирає можливість змінювати розмір textarea */
+    width: 100%;
+    /* Займає всю доступну ширину контейнера */
+    height: 100px;
+    /* Фіксована висота для textarea */
+    padding: 5px;
+    /* Відступи всередині textarea */
+    font-size: 16px;
+    /* Розмір шрифту */
+    border: 1px solid #ccc;
+    /* Колір і ширина рамки */
+    border-radius: 5px;
+    /* Закруглення кутів */
+    outline: none;
+    /* Прибирає обведення при фокусі */
+    box-shadow: none;
+    /* Видаляє стандартну тінь */
+}
+
+.inptextarea:focus {
+    border-color: #007bff;
+    /* Колір рамки при фокусі */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    /* Легка тінь при фокусі */
+}
+
+.inptextarea::placeholder {
+    color: #999;
+    /* Колір тексту плейсхолдера */
+    font-style: italic;
+    /* Текст плейсхолдера курсивом */
+}

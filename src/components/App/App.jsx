@@ -1,14 +1,14 @@
 import { Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { useEffect } from "react";
 
+const TruckFeatures = lazy(() => import("../TruckFeatures/TruckFeatures"));
+const TruckReviews = lazy(() => import("../TruckReviews/TruckReviews"));
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
 
 const TruckPageFilters = lazy(() =>
   import("../../pages/TruckPageFilters/TruckPageFilters")
 );
-// const TruckPage = lazy(() => import("../../pages/TruckPage/TruckPage"));
+
 const TruckDetalsPage = lazy(() =>
   import("../../pages/TruckDetalsPage/TruckDetalsPage")
 );
@@ -23,15 +23,13 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/catalog" element={<TruckPageFilters />} />
-          <Route path="/catalog/:id" element={<TruckDetalsPage />} />
-
+          <Route path="/catalog/:id" element={<TruckDetalsPage />}>
+            <Route path="features" element={<TruckFeatures />} />
+            <Route path="reviews" element={<TruckReviews />} />
+          </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
     </Layout>
   );
 }
-
-/* <Route path="features" element={<TruckFeatures />} /> */
-// <Route path="reviews" element={<TruckReviews />} />
-/* <Route path="/catalog" element={<TruckPage />} />; */
