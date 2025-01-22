@@ -57,7 +57,7 @@ const TruckDetails = ({ id }) => {
           </div>
 
           <div className={css.textPriceBl}>
-            <p className={css.textPrice}>&euro {selectedTruck.price}</p>
+            <p className={css.textPrice}>€ {selectedTruck.price}</p>
           </div>
           <div className={css.imgCardBloc}>
             <div className={css.imgCard}>
