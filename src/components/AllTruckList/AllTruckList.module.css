@@ -73,9 +73,6 @@
     line-height: 1.2;
     padding: 0px;
     margin: 0px;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
 }
 .loched {
     height: 25px;
@@ -108,11 +105,8 @@
     justify-content: center;
     gap: 10px;
     border: 1px solid rgba(0, 0, 0, 0.1);
-        /* Тонка сіра рамка */
     border-radius: 10px;
-        /* Невелике заокруглення */
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        /* Легка тінь для об'єму */
 }
 .cartComent {
     width: 524px;
@@ -144,7 +138,7 @@
 }
 .textTitlesBl {
     margin: 2px;
-    padding: 2px;
+    /* padding: 2px; */
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -152,9 +146,9 @@
     text-align: center;
 }
 .textTitles {
-margin: 5px;
-margin-left: 20px;
-padding: 0px;
+    margin: 5px;
+    margin-left: 20px;
+    padding: 0px;
     display: flex;
     justify-content: start;
     align-items: center;
@@ -169,17 +163,15 @@ padding: 0px;
     justify-content: start;
     align-items: center;
     font-size: 12px;
-        /* Задає менший розмір шрифту */
     line-height: 1.4;
-        /* Робить текст більш читабельним */
     color: #555;
 }
 .textDescr {
     display: inline-block;
-        max-width: 100%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+     max-width: 100%;
+     overflow: hidden;
+     text-overflow: ellipsis;
+     white-space: nowrap;
 
 }
 .textdes {
@@ -261,8 +253,7 @@ padding: 0px;
 .btnShowe {
     width: 166px;
         height: 56px;
-        font-size: 18px;
-        
+        font-size: 18px;  
         display: flex;
         justify-content: center;
         align-items: center;
@@ -277,15 +268,99 @@ padding: 0px;
     padding: 2px;
     margin: 2px;
     border: 1px solid rgba(0, 0, 0, 0.1);
-    /* Тонка сіра рамка */
      border-radius: 10px;
-     /* Невелике заокруглення */
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    /* Легка тінь для об'єму */
 }
 .imgCard {
     width: 292px;
     height: 320px;
     padding: 1px;
     margin: 1px;
+}
+.textTitlesis {
+    margin: 5px;
+    margin-right: 0px;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+}
+.iconhed {
+    width: 30px;
+    height: 30px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.textTitlesBl {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.descripBloc {
+    margin: 2px;
+    /* margin-left: 10px; */
+    padding: 2px;
+    width: 800px;
+    height: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    text-align: center;
+    align-items: center;
+}
+
+.descripBlo {
+    margin: 2px;
+    padding: 2px;
+    /* width: 100px;
+        height: 25px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.iconhed {
+    width: 25px;
+    height: 25px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.2;
+    padding: 0px;
+    margin: 0px;
+
+}
+
+.loched {
+    height: 25px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.2;
+    padding: 0px;
+    margin: 0px;
+}
+
+.textTitleL {
+    width: 200px;
+    height: 30px;
+    margin: 0px;
+    padding: 0px;
+    margin-left: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }

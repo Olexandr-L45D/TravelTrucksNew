@@ -60,35 +60,22 @@ const TruckDetails = ({ id }) => {
             <p className={css.textPrice}>€ {selectedTruck.price}</p>
           </div>
           <div className={css.imgCardBloc}>
-            <div className={css.imgCard}>
-              <img
-                className={css.img}
-                src={selectedTruck.gallery[0].thumb}
-                alt={selectedTruck.name}
-              />
-            </div>
-            <div className={css.imgCard}>
-              <img
-                className={css.img}
-                src={selectedTruck.gallery[0].original}
-                alt={selectedTruck.name}
-              />
-            </div>
-            <div className={css.imgCard}>
-              <img
-                className={css.img}
-                src={selectedTruck.gallery[1].thumb}
-                alt={selectedTruck.name}
-              />
-            </div>
-            <div className={css.imgCard}>
-              <img
-                className={css.img}
-                src={selectedTruck.gallery[1].original}
-                alt={selectedTruck.name}
-              />
-            </div>
+            {selectedTruck.gallery.map(({ thumb }, index) => (
+              <div key={index} className={css.imgCard}>
+                <img
+                  className={css.img}
+                  src={thumb}
+                  alt={`${selectedTruck.name} thumbnail`}
+                />
+                {/* <img
+                  className={css.img}
+                  src={original}
+                  alt={`${selectedTruck.name} original`}
+                /> */}
+              </div>
+            ))}
           </div>
+
           <div className={css.textDescr}>
             <p className={css.text}>{selectedTruck.description}</p>
           </div>

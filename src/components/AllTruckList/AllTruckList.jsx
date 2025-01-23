@@ -9,10 +9,7 @@ export default function AllTruckList({ trucks }) {
   if (!trucks || trucks.length === 0) {
     return <div>No trucks available</div>; // Відобразіть це, якщо дані ще не завантажені
   }
-  // export default function AllTruckList({ filteredTrucks }) {
-  //   if (!filteredTrucks || filteredTrucks.length === 0) {
-  //     return <div>No trucks available</div>; // Відобразіть це, якщо дані ще не завантажені
-  //   }
+
   return (
     <div className={css.container}>
       <ul className={css.list}>
@@ -45,6 +42,29 @@ export default function AllTruckList({ trucks }) {
                   </div>
 
                   <div className={css.descripBloc}>
+                    <div className={css.descripBlo}>
+                      <div className={css.textTitlesis}>
+                        <svg className={css.iconhed}>
+                          <use href={`${sprite}#icon-star`} />
+                        </svg>
+                      </div>
+                      <div className={css.loched}>
+                        {rating}
+                        <strong className={css.loched}>(Revievs)</strong>
+                      </div>
+                    </div>
+                    <div className={css.textTitlesBl}>
+                      <div className={css.textTitlesis}>
+                        <svg className={css.iconhed}>
+                          <use href={`${sprite}#icon-city`} />
+                        </svg>
+                      </div>
+                      <div className={css.loched}>{location}</div>
+                    </div>
+                  </div>
+
+                  {/* 
+                  <div className={css.descripBloc}>
                     <div className={css.loched}>
                       <svg className={css.iconhed}>
                         <use href={`${sprite}#icon-star`} />
@@ -59,7 +79,7 @@ export default function AllTruckList({ trucks }) {
                       </div>
                       <div className={css.loched}>{location}</div>
                     </div>
-                  </div>
+                  </div> */}
 
                   <div className={css.textDescr}>
                     <p className={css.text}>{description}</p>

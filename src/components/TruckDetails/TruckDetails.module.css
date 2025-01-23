@@ -115,9 +115,7 @@
     justify-content: start;
     align-items: center;
     font-size: 14px;
-    /* Задає менший розмір шрифту */
     line-height: 1.4;
-    /* Робить текст більш читабельним */
     color: #555;
 }
 
@@ -447,9 +445,9 @@ justify-content: center;
 
 .textTitlesis {
     margin: 5px;
+    margin-right: 0px;
     padding: 0px;
     display: flex;
-    justify-content: start;
     align-items: center;
     font-weight: 500;
     font-size: 16px;
