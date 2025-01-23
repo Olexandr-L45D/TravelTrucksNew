@@ -1,4 +1,3 @@
-// TruckDetails
 import { useEffect } from "react";
 import sprite from "../../images/sprite.svg";
 import css from "./TruckDetails.module.css";
@@ -90,6 +89,10 @@ const TruckDetails = ({ id }) => {
                 <Link to="reviews">
                   <h3 className={css.comTitles}>Reviews</h3>
                 </Link>
+              </li>
+              <li className={css.textLink}>
+                Plese use this link to go Catalog{" "}
+                <Link to="/catalog">back to Catalog</Link>
               </li>
             </ul>
             <Outlet />

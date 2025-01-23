@@ -166,12 +166,7 @@
     justify-content: center;
     align-items: center;
 }
-.textTitlesBl {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
+
 .descripBloc {
     margin: 2px;
     /* margin-left: 10px; */
@@ -194,16 +189,6 @@
         justify-content: center;
         text-align: center;
         align-items: center;
-}
-.iconhed {
-    width: 25px;
-    height: 25px;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 1.2;
-    padding: 0px;
-    margin: 0px;
-    
 }
 
 .loched {
@@ -284,8 +269,12 @@ justify-content: right;
 }
 
 .icon {
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(5px);
 }
 
 .error {
@@ -433,6 +422,7 @@ justify-content: center;
     text-align: left;
     align-items: left;
 }
+
 .textTitlesBl {
     margin: 1px;
     padding: 1px;
@@ -533,4 +523,7 @@ position: relative;
     justify-content: start;
     align-items: center;
     list-style: none;
+}
+.textLink {
+    margin-left: 100px;
 }
