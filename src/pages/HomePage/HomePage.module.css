@@ -1,4 +1,3 @@
-/* style */
 
 .container {
     width: 100%;
@@ -51,10 +50,6 @@
     font-size: 1em;
     font-weight: 700;
     line-height: 1;
-    /* display: flex;
-    justify-content: start;
-    align-items: left;
-    text-align: left; */
 }
 .cartIcon {
     width: 80px;
@@ -73,12 +68,12 @@
     
 }
 
-.buttonIconSearch {
+.buttonViews {
     width: 166px;
     height: 56px;
     padding: 0px;
     margin: 10px;
-    margin-left: 15px;
+    margin-left: 5px;
     display: flex;
     flex-direction: row;
     text-align: center;
@@ -86,7 +81,7 @@
     border-radius: 40px;
 }
 
-.btnSearch {
+.btnVie {
     width: 166px;
     height: 56px;
     font-size: 18px;

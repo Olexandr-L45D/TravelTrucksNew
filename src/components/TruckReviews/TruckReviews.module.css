@@ -14,6 +14,7 @@
     width: 631px;
     height: 588px;
     margin: 0px;
+    margin-left: 64px;
     padding: 0px;
     display: flex;
     flex-direction: column;

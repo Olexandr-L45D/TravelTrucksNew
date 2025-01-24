@@ -60,13 +60,10 @@ export default function TruckPageFilters() {
   }, [filteres, allTrucks]);
 
   return (
-    <>
-      <div className={css.cartAllPage}>
-        <SearchBoxFiltr filters={filteredTrucks} />
-        <div>{isLoading && <Loader />}</div>
-        <AllTruckList trucks={filteredTrucks} />
-      </div>
-    </>
+    <div className={css.cartAllPage}>
+      <SearchBoxFiltr filters={filteredTrucks} />
+      <div>{isLoading && <Loader />}</div>
+      <AllTruckList trucks={filteredTrucks} />
+    </div>
   );
 }
-

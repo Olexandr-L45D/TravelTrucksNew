@@ -1,14 +1,19 @@
 import { useEffect } from "react";
 import sprite from "../../images/sprite.svg";
+import clsx from "clsx";
 import css from "./TruckDetails.module.css";
+import { GoArrowLeft } from "react-icons/go";
 import { findTruckById } from "../../redux/campers/operations";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
+
+const newLinkClass = ({ isActive }) => {
+  return clsx(css.link, isActive && css.active);
+};
 
 const TruckDetails = ({ id }) => {
   const dispatch = useDispatch();
   const { selectedTruck, loading, error } = useSelector(state => state.campers);
-  // const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
     dispatch(findTruckById(id)); // Запит на завантаження деталей вантажівки
@@ -27,14 +32,14 @@ const TruckDetails = ({ id }) => {
   }
   return (
     <div className={css.container}>
-      <div className={css.cartContainer}>
-        <div className={css.cartComent}>
+      <section className={css.cartContainer}>
+        <section className={css.cartComent}>
           <div className={css.titlesblok}>
-            <p className={css.titles}>{selectedTruck.name}</p>
+            <h1 className={css.titles}>{selectedTruck.name}</h1>
           </div>
 
-          <div className={css.descripBloc}>
-            <div className={css.descripBlo}>
+          <ul className={css.descripBloc}>
+            <li className={css.descripBlo}>
               <div className={css.textTitlesis}>
                 <svg className={css.iconhed}>
                   <use href={`${sprite}#icon-star`} />
@@ -44,23 +49,23 @@ const TruckDetails = ({ id }) => {
                 {selectedTruck.rating}
                 <strong className={css.loched}>(Revievs)</strong>
               </div>
-            </div>
-            <div className={css.textTitlesBl}>
+            </li>
+            <li className={css.textTitlesBl}>
               <div className={css.textTitlesis}>
                 <svg className={css.iconhed}>
                   <use href={`${sprite}#icon-city`} />
                 </svg>
               </div>
               <div className={css.loched}>{selectedTruck.location}</div>
-            </div>
-          </div>
+            </li>
+          </ul>
 
           <div className={css.textPriceBl}>
-            <p className={css.textPrice}>€ {selectedTruck.price}</p>
+            <h3 className={css.textPrice}>€ {selectedTruck.price}</h3>
           </div>
-          <div className={css.imgCardBloc}>
+          <ul className={css.imgCardBloc}>
             {selectedTruck.gallery.map(({ thumb }, index) => (
-              <div key={index} className={css.imgCard}>
+              <li key={index} className={css.imgCard}>
                 <img
                   className={css.img}
                   src={thumb}
@@ -71,9 +76,9 @@ const TruckDetails = ({ id }) => {
                   src={original}
                   alt={`${selectedTruck.name} original`}
                 /> */}
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
 
           <div className={css.textDescr}>
             <p className={css.text}>{selectedTruck.description}</p>
@@ -81,26 +86,32 @@ const TruckDetails = ({ id }) => {
           <div className={css.blocTitleContainers}>
             <ul className={css.textTitlesBloLi}>
               <li className={css.textTitles}>
-                <Link to="features">
-                  <h3 className={css.comTitles}>Features</h3>
-                </Link>
+                <NavLink to="features" className={newLinkClass}>
+                  Features
+                </NavLink>
               </li>
               <li className={css.textTitles}>
-                <Link to="reviews">
-                  <h3 className={css.comTitles}>Reviews</h3>
-                </Link>
+                <NavLink to="reviews" className={newLinkClass}>
+                  Reviews
+                </NavLink>
               </li>
               <li className={css.textLink}>
-                Plese use this link to go Catalog{" "}
-                <Link to="/catalog">back to Catalog</Link>
+                <button className={css.buttonIcon}>
+                  <GoArrowLeft className={css.icons} />
+                  <NavLink to="/catalog">Go to Catalog</NavLink>
+                </button>
               </li>
             </ul>
             <Outlet />
           </div>
-        </div>
-      </div>
+        </section>
+      </section>
     </div>
   );
 };
 
 export default TruckDetails;
+
+/* <Link to="features">
+  <h3 className={css.comTitles}>Features</h3>
+</Link>; */

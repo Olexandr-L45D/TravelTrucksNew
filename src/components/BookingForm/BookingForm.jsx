@@ -46,75 +46,69 @@ export default function BookingForm() {
         {({ errors, touched }) => (
           <Form>
             <Field type="hidden" id="truckId" name="truckId" />
-            <div className={css.formGroup}>
-              <label className={css.label} htmlFor="name">
-                Name
-              </label>
+            <fieldset className={css.formGroup}>
               <Field
                 className={css.inp}
                 type="text"
                 id="name"
                 name="name"
-                placeholder="Enter name..."
+                placeholder="Name *"
               />
               {errors.name && touched.name && <div>{errors.name}</div>}
-            </div>
+            </fieldset>
 
-            <div className={css.formGroup}>
-              <label className={css.label} htmlFor="email">
-                Email
-              </label>
+            <fieldset className={css.formGroup}>
               <Field
                 className={css.inp}
                 type="email"
                 id="email"
                 name="email"
-                placeholder="Enter email..."
+                placeholder="Email *"
               />
               {errors.email && touched.email && <div>{errors.email}</div>}
-            </div>
+            </fieldset>
 
-            <div className={css.formGroup}>
-              <label className={css.label} htmlFor="bookingDate">
-                Booking date
-              </label>
+            <fieldset className={css.formGroup}>
               <Field
                 className={css.inp}
                 type="date"
                 id="bookingDate"
                 name="bookingDate"
-                placeholder="Enter booking date..."
+                placeholder="Booking date *"
               />
               {errors.bookingDate && touched.bookingDate && (
                 <div>{errors.bookingDate}</div>
               )}
-            </div>
+            </fieldset>
 
-            <div className={css.formGroup}>
-              <label className={css.label} htmlFor="comment">
-                Comment
-              </label>
+            <fieldset className={css.formGroup}>
               <Field
                 className={css.inptextarea}
                 as="textarea"
                 id="comment"
                 name="comment"
-                placeholder="Enter your comment..."
+                placeholder="Comment *"
               />
               {errors.comment && touched.comment && <div>{errors.comment}</div>}
-            </div>
+            </fieldset>
 
-            <div className={css.buttonSend}>
+            <section className={css.buttonSend}>
               <button className={css.btnSend} type="submit">
                 Send
               </button>
-            </div>
+            </section>
           </Form>
         )}
       </Formik>
     </div>
   );
 }
+
+/* <fieldset> групує пов’язані поля у формі. */
+
+//  <label className={css.label} htmlFor="name">
+//    Name
+// </label>;
 
 //  <ToastContainer position="top-right" autoClose={3000} />;
 // const payload = {

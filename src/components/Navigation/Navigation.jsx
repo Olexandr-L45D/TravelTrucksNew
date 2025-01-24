@@ -1,6 +1,7 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import clsx from "clsx";
 import css from "./Navigation.module.css";
+import sprite from "../../images/sprite.svg";
 
 const newLinkClass = ({ isActive }) => {
   return clsx(css.link, isActive && css.active);
@@ -8,9 +9,15 @@ const newLinkClass = ({ isActive }) => {
 
 export const Navigation = () => {
   return (
-    <div className={css.container}>
-      <h3 className={css.title}>TravelTrucks</h3>
-      <div className={css.card}>
+    <header className={css.container}>
+      <div className={css.title}>
+        <Link to="/">
+          <svg className={css.iconLogo}>
+            <use href={`${sprite}#icon-truckLogo`} />
+          </svg>
+        </Link>
+      </div>
+      <section className={css.card}>
         <nav className={css.nav}>
           <NavLink to="/" className={newLinkClass}>
             Home
@@ -19,7 +26,7 @@ export const Navigation = () => {
             Catalog
           </NavLink>
         </nav>
-      </div>
-    </div>
+      </section>
+    </header>
   );
 };

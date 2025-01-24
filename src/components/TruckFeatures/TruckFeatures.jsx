@@ -7,68 +7,68 @@ export default function TruckFeatures() {
   const { selectedTruck } = useSelector(state => state.campers);
 
   return (
-    <div className={css.cartBottomDetall}>
-      <div className={css.cartComentBloks}>
-        <div className={css.descripBl}>
-          <div className={css.textdes}>
+    <section className={css.cartBottomDetall}>
+      <section className={css.cartComentBloks}>
+        <ul className={css.descripBl}>
+          <li className={css.textdes}>
             <svg className={css.icon}>
               <use href={`${sprite}#icon-aut`} />
             </svg>
             <strong>Automatic</strong> {selectedTruck.water}
-          </div>
-          <div className={css.textdes}>
+          </li>
+          <li className={css.textdes}>
             <svg className={css.icon}>
               <use href={`${sprite}#icon-ac`} />
             </svg>
             <strong>AC</strong> {selectedTruck.AC}
-          </div>
-          <div className={css.textdes}>
+          </li>
+          <li className={css.textdes}>
             <svg className={css.icon}>
               <use href={`${sprite}#icon-petrol`} />
             </svg>
             <strong>Petrol</strong> {selectedTruck.engin}
-          </div>
-          <div className={css.textdes}>
+          </li>
+          <li className={css.textdes}>
             <svg className={css.icon}>
               <use href={`${sprite}#icon-kitch`} />
             </svg>
             <strong>kitchen</strong> {selectedTruck.kitchen}
-          </div>
-        </div>
-        <div className={css.textContainers}>
+          </li>
+        </ul>
+        <section className={css.textContainers}>
           <div className={css.textTitleVeBlok}>
             <h3 className={css.textTitleVe}>Vehicle details</h3>
           </div>
-          <div className={css.textdesForm}>
-            <div className={css.textdeskrip}>
+          <ul className={css.textdesForm}>
+            <li className={css.textdeskrip}>
               <p className={css.textTit}>Form</p>
               <p className={css.texBec}>{selectedTruck.form}</p>
-            </div>
-            <div className={css.textdeskrip}>
+            </li>
+            <li className={css.textdeskrip}>
               <p className={css.textTit}>Length</p>
               <p className={css.texBec}>{selectedTruck.length}</p>
-            </div>
-            <div className={css.textdeskrip}>
+            </li>
+            <li className={css.textdeskrip}>
               <p className={css.textTit}>Width</p>
               <p className={css.texBec}>{selectedTruck.width}</p>
-            </div>
-            <div className={css.textdeskrip}>
+            </li>
+            <li className={css.textdeskrip}>
               <p className={css.textTit}>Height</p>
               <p className={css.texBec}> {selectedTruck.height}</p>
-            </div>
-            <div className={css.textdeskrip}>
+            </li>
+            <li className={css.textdeskrip}>
               <p className={css.textTit}>Tank</p>
               <p className={css.texBec}>{selectedTruck.tank}</p>
-            </div>
-            <div className={css.textdeskrip}>
+            </li>
+            <li className={css.textdeskrip}>
               <p className={css.textTit}>Consumption</p>
               <p className={css.texBec}>{selectedTruck.consumption}</p>
-            </div>
-          </div>
-        </div>
-      </div>
+            </li>
+          </ul>
+        </section>
+      </section>
 
-      <div className={css.textContainerses}>
+      <section className={css.textContainerses}>
         <h3 className={css.textTitleTit}>Book yoor campervan now</h3>
         <h4 className={css.textTitleTi}>
           Stay connected ! We are alwaays raady to help you.
@@ -76,7 +76,7 @@ export default function TruckFeatures() {
         <div className={css.blocForm}>
           <BookingForm />
         </div>
-      </div>
-    </div>
+      </section>
+    </section>
   );
 }

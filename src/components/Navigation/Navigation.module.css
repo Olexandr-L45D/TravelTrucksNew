@@ -1,10 +1,10 @@
-/*style Navigation */
 
 .nav {
+    height: 16px;
     display: flex;
     text-align: center;
-        justify-content: center;
-        align-items: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .logo {
@@ -19,36 +19,36 @@
     text-decoration: none;
     color: black;
     font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
 }
 
 a:hover {
-    color: #ffffff;
+    color: #d84343;
 }
 
 .link:hover {
-    color: #ffffff;
+    color: #d84343;
 }
 
 a:focus {
-    color: #ffffff;
+    color: #d84343;
 }
 
 .link:focus {
-    color: #ffffff;
+    color: #d84343;
 }
 
 .active {
-    color: white;
-    background-color: rgb(255, 0, 242);
+    color: #d84343;
+    
 }
 
 .container {
     width: 100%;
     display: flex;
     justify-content: center;
-    /* text-align: center;
-    justify-content: center;
-    align-items: center; */
 }
 
 .card {
@@ -65,4 +65,9 @@ width: 100%;
         border-radius: 2px;
         margin-right: auto;
         color: black;
+}
+
+.iconLogo {
+    width: 136px;
+    height: 16px;
 }
