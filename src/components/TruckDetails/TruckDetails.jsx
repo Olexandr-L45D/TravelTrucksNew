@@ -1,15 +1,10 @@
 import { useEffect } from "react";
 import sprite from "../../images/sprite.svg";
-import clsx from "clsx";
 import css from "./TruckDetails.module.css";
 import { GoArrowLeft } from "react-icons/go";
 import { findTruckById } from "../../redux/campers/operations";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Outlet } from "react-router-dom";
-
-const newLinkClass = ({ isActive }) => {
-  return clsx(css.link, isActive && css.active);
-};
 
 const TruckDetails = ({ id }) => {
   const dispatch = useDispatch();
@@ -86,19 +81,31 @@ const TruckDetails = ({ id }) => {
           <div className={css.blocTitleContainers}>
             <ul className={css.textTitlesBloLi}>
               <li className={css.textTitles}>
-                <NavLink to="features" className={newLinkClass}>
+                <NavLink
+                  className={({ isActive }) =>
+                    `${css.navLink} ${isActive ? css.active : ""}`
+                  }
+                  to="features"
+                >
                   Features
                 </NavLink>
               </li>
               <li className={css.textTitles}>
-                <NavLink to="reviews" className={newLinkClass}>
+                <NavLink
+                  className={({ isActive }) =>
+                    `${css.navLink} ${isActive ? css.active : ""}`
+                  }
+                  to="reviews"
+                >
                   Reviews
                 </NavLink>
               </li>
               <li className={css.textLink}>
                 <button className={css.buttonIcon}>
                   <GoArrowLeft className={css.icons} />
-                  <NavLink to="/catalog">Go to Catalog</NavLink>
+                  <NavLink className={css.linkGo} to="/catalog">
+                    Go to Catalog
+                  </NavLink>
                 </button>
               </li>
             </ul>
@@ -111,7 +118,3 @@ const TruckDetails = ({ id }) => {
 };
 
 export default TruckDetails;
-
-/* <Link to="features">
-  <h3 className={css.comTitles}>Features</h3>
-</Link>; */

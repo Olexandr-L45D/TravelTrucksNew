@@ -1,4 +1,55 @@
 
+.container {
+    position: fixed;
+    /* Фіксує контейнер у верхній частині */
+    top: 0;
+    /* Відступ від верхнього краю екрана */
+    left: 0;
+    /* Вирівнювання по лівому краю */
+    right: 0;
+    /* Вирівнювання по правому краю */
+    z-index: 1000;
+    /* Забезпечує, що шапка буде зверху інших елементів */
+    border-bottom: 1px solid #f2f4f7;
+    padding: 24px 64px;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 72px;
+    width: 100%;
+    /* Забезпечує повну ширину */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Додає тінь для кращої видимості */
+}
+
+.card {
+    width: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    border-radius: 2px;
+    margin-right: auto;
+    color: black;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconLogo {
+    margin-top: 10px;
+    width: 170px;
+    height: 22px;
+}
+
 .nav {
     height: 16px;
     display: flex;
@@ -45,29 +96,3 @@ a:focus {
     
 }
 
-.container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.card {
-width: 100%;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-}
-
-.title {
-    padding: 20px;
-        margin: 20px;
-        border-radius: 2px;
-        margin-right: auto;
-        color: black;
-}
-
-.iconLogo {
-    width: 136px;
-    height: 16px;
-}

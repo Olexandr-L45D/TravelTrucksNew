@@ -1,5 +1,5 @@
 .item {
-    width: 350px;
+    width: 360px;
     height: auto;
     margin: 5px;
     margin-top: 20px;
@@ -10,12 +10,13 @@
     color: rgb(14, 15, 15);
     display: flex;
     flex-direction: column;
+    justify-content: start;
     text-align: left;
     align-items: left;
 }
 
 .items {
-    width: 112px;
+    width: 110px;
     height: 96px;
     margin: 6px;
     padding: 0px;
@@ -29,6 +30,8 @@
 }
 
 .label {
+    width: 100px;
+    height: 20px;
     margin-bottom: 16px;
     padding: 10px;
 }
@@ -51,6 +54,9 @@
     border-radius: 40px;
 }
 
+.btnReset {
+    margin-top: 10px;
+}
 .btnSearch {
     width: 166px;
     height: 56px;
@@ -111,6 +117,7 @@
 .itemsCont {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .error {

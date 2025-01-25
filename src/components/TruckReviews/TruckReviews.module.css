@@ -281,7 +281,6 @@
     align-items: center;
     width: 92px;
     height: 138px;
-    /* background-color: gray; */
 }
 
 .icon {
@@ -481,8 +480,9 @@
 
 .textN {
     font-weight: 500;
-        font-size: 16px;
-        line-height: 1.5;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 0px;
 }
 .textDescrBl {
     margin: 5px;

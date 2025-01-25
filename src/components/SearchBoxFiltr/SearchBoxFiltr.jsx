@@ -3,141 +3,83 @@ import { useDispatch, useSelector } from "react-redux";
 import sprite from "../../images/sprite.svg";
 import { resetFilters, setFilter } from "../../redux/filters/slice";
 import { selectStatusFilter } from "../../redux/filters/selectors";
-
 import { useSearchParams } from "react-router-dom";
 import { useState } from "react";
 import { useCallback } from "react";
 
 export default function SearchBoxFiltr() {
   const dispatch = useDispatch();
-  const filter = useSelector(selectStatusFilter); // Отримуємо фільтр із Redux
+  const filter = useSelector(selectStatusFilter);
   const [params, setParams] = useSearchParams();
   const [error, setError] = useState("");
-  // Обробка форми
+
+  // Обробка сабміту форми
   const handleSubmit = event => {
     event.preventDefault();
     const locationValue = event.target.elements.owner.value.trim();
+
     if (!locationValue) {
-      setError("Please enter a location."); // Встановлюємо помилку
+      setError("Please enter a location.");
       return;
     }
 
-    setError(""); // Скидаємо помилку, якщо введення валідне
+    setError("");
     params.set("owner", locationValue);
     setParams(params);
-    dispatch(setFilter({ filterName: "location", value: locationValue })); // Оновлюємо Redux-стан
-    event.target.reset();
-  };
-
-  const handleOptionClick = useCallback(
-    option => {
-      dispatch(
-        setFilter({
-          filterName: option,
-          value: !filter?.filters?.[option], // Перевірка на існування `filters`
-        })
-      );
-    },
-    [dispatch, filter]
-  );
-  // Зміна місця розташування
-  const handleLocationChange = event => {
-    const locationValue = event.target.value;
     dispatch(setFilter({ filterName: "location", value: locationValue }));
   };
-  // Якщо `filters` не визначений
-  if (!filter || Object.keys(filter).length === 0) {
-    return <p>Loading filters...</p>;
-  }
-  // Скидання фільтрів
+
+  // Обробка вибору чекбоксів // location: "Ukraine, Kyiv"
+  const handleOptionClick = useCallback(() => {
+    console.log("Dispatching filter: Ukraine, Kyiv");
+    dispatch(setFilter({ filterName: "location", value: "Ukraine, Kyiv" }));
+  }, [dispatch]);
+
   const handleReset = () => {
     dispatch(resetFilters());
   };
+  if (!filter || !filter.filters) {
+    return <p>Loading filters...</p>;
+  }
 
   return (
     <div className={css.item}>
       <h5 className={css.paragraf}>Find truck by location</h5>
       <form onSubmit={handleSubmit}>
+        {/* Поле локації */}
         <label className={css.label}>
           Location:
-          <input
-            type="text"
-            name="owner"
-            onChange={handleLocationChange}
-            placeholder="Enter location"
-          />
+          <input type="text" name="owner" placeholder="Enter location" />
         </label>
+
+        {/* Секція чекбоксів */}
         <h4>Vehicle equipment</h4>
         <div className={css.itemsCont}>
-          {/* <div className={css.items}>
-            <p
-              className={`${css.iconCard} ${
-                filter.filters.AC ? css.active : ""
-              }`}
-              onClick={() => handleOptionClick("AC")}
-            >
-              <svg className={css.icon}>
-                <use href={`${sprite}#icon-ac`} />
-              </svg>
-              AC
-            </p>
-          </div> */}
-          <div className={css.items}>
-            <p
-              className={`${css.iconCard} ${
-                filter.filters.kitchen ? css.active : ""
-              }`}
-              onClick={() => handleOptionClick("kitchen")}
-            >
-              <svg className={css.icon}>
-                <use href={`${sprite}#icon-kitch`} />
-              </svg>
-              Kitchen
-            </p>
-          </div>
+          {[
+            { name: "kitchen", icon: "icon-kitch", label: "Kitchen" },
+            { name: "AC", icon: "icon-ac", label: "AC" },
+            { name: "bathroom", icon: "icon-bathroom", label: "Bathroom" },
+            { name: "van", icon: "icon-van", label: "Van" },
+            { name: "TV", icon: "icon-tv", label: "TV" },
+          ].map(option => (
+            <div key={option.name} className={css.items}>
+              <p
+                className={`${css.iconCard} ${
+                  filter.filters[option.name] ? css.active : ""
+                }`}
+                onClick={() => handleOptionClick(option.name)}
+              >
+                <svg className={css.icon}>
+                  <use href={`${sprite}#${option.icon}`} />
+                </svg>
+                {option.label}
+              </p>
+            </div>
+          ))}
         </div>
-        <div className={css.itemsCont}>
-          <div className={css.items}>
-            <p
-              className={`${css.iconCard} ${
-                filter.filters.AC ? css.active : ""
-              }`}
-              onClick={() => handleOptionClick("AC")}
-            >
-              <svg className={css.icon}>
-                <use href={`${sprite}#icon-tv`} />
-              </svg>
-              TV
-            </p>
-          </div>
-          <div className={css.items}>
-            <p
-              className={`${css.iconCard} ${
-                filter.filters.bathroom ? css.active : ""
-              }`}
-              onClick={() => handleOptionClick("bathroom")}
-            >
-              <svg className={css.icon}>
-                <use href={`${sprite}#icon-bathroom`} />
-              </svg>
-              Bathroom
-            </p>
-          </div>
-          <div className={css.items}>
-            <p
-              className={`${css.iconCard} ${
-                filter.filters.van ? css.active : ""
-              }`}
-              onClick={() => handleOptionClick("van")}
-            >
-              <svg className={css.icon}>
-                <use href={`${sprite}#icon-van`} />
-              </svg>
-              Van
-            </p>
-          </div>
-        </div>
-        <button type="button" onClick={handleReset}>
+
+        {/* Кнопки для скидання та сабміту */}
+        <button className={css.btnReset} type="button" onClick={handleReset}>
           Reset Filters
         </button>
         <div className={css.buttonIconSearch}>

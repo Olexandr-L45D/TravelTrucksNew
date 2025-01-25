@@ -1,11 +1,8 @@
-// AllTruckList
 import { NavLink } from "react-router-dom";
 import sprite from "../../images/sprite.svg";
 import css from "./AllTruckList.module.css";
 
 export default function AllTruckList({ trucks }) {
-  console.log(trucks);
-
   if (!trucks || trucks.length === 0) {
     return <div>No trucks available</div>; // Відобразіть це, якщо дані ще не завантажені
   }
@@ -32,10 +29,10 @@ export default function AllTruckList({ trucks }) {
                   <img className={css.img} src={gallery[0].thumb} alt={name} />
                 </figure>
                 <section className={css.cartComent}>
-                  <header className={css.titlesblok}>
+                  <div className={css.titlesblok}>
                     <h2 className={css.titles}>{name}</h2>
                     <p className={css.textPrice}>€ {price}</p>
-                  </header>
+                  </div>
 
                   <section className={css.descripBloc}>
                     <ul className={css.descripList}>

@@ -2,12 +2,12 @@ import css from "./Layout.module.css";
 
 import { Suspense } from "react";
 
-import { AppBar } from "../AppBar/AppBar";
+import { Navigation } from "../Navigation/Navigation";
 
 export const Layout = ({ children }) => {
   return (
     <div className={css.container}>
-      <AppBar />
+      <Navigation />
       <Suspense fallback={null}>{children}</Suspense>
     </div>
   );

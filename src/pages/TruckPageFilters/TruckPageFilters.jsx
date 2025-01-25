@@ -14,7 +14,7 @@ export default function TruckPageFilters() {
   const filteres = useSelector(selectStatusFilter); // Додано
   const [allTrucks, setAllTrucks] = useState([]); // Всі вантажівки
   const [filteredTrucks, setFilteredTrucks] = useState([]); // Фільтровані вантажівки
-  // const trucks = useSelector(state => state.campers.items); // Приклад вибірки з Redux
+  const trucks = useSelector(state => state.campers.items); // Приклад вибірки з Redux
   const isFetched = useSelector(state => state.campers.isFetched); // Флаг стану
 
   useEffect(() => {
@@ -61,9 +61,11 @@ export default function TruckPageFilters() {
 
   return (
     <div className={css.cartAllPage}>
-      <SearchBoxFiltr filters={filteredTrucks} />
+      <SearchBoxFiltr trucks={trucks} />
       <div>{isLoading && <Loader />}</div>
       <AllTruckList trucks={filteredTrucks} />
     </div>
   );
 }
+
+// <SearchBoxFiltr filters={filteredTrucks} />

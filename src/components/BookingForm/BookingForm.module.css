@@ -7,7 +7,7 @@
     padding: 5px;
     padding: 0px;
     list-style: none;
-    border: 1px solid rgb(104, 102, 102);
+    border: none;
     border-radius: 8px;
     color: rgb(14, 15, 15);
     display: flex;
@@ -36,9 +36,13 @@
 
 .inp {
     width: 100%;
-    height: 100%;
-    margin-bottom: 8px;
-    padding: 2px;
+    border-radius: 10px;
+    padding: 18px 341px 18px 18px;
+    width: 515px;
+    height: 50px;
+    background-color: #f7f7f7;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .buttonSend {
@@ -73,18 +77,13 @@
     justify-content: start;
     align-items: center;
     margin-bottom: 10px;
+    border: none;
 }
 
 .formGroup label {
     width: 150px;
-    /* Adjust the width as needed */
     margin-right: 10px;
     text-align: right;
-}
-
-.form-group input,
-.form-group textarea {
-    flex: 1;
 }
 
 .inptextarea {
@@ -104,8 +103,8 @@
     /* Закруглення кутів */
     outline: none;
     /* Прибирає обведення при фокусі */
-    box-shadow: none;
-    /* Видаляє стандартну тінь */
+    background-color: #f7f7f7;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .inptextarea:focus {

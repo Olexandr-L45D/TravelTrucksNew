@@ -51,12 +51,20 @@ export const { setChangeFilter, setFilter, resetFilters } =
   filtersSlice.actions;
 export const filtersReducer = filtersSlice.reducer;
 
-// initialState: {
-//     filters: {
-//       location: "",
-//       AC: true,
-//       water: true,
-//       engin: true,
-//       kitchen: true,
+// const initialState = {
+//   filters: {},
+// };
+
+// const filtersSlice = createSlice({
+//   name: "filters",
+//   initialState,
+//   reducers: {
+//     setFilter(state, action) {
+//       const { filterName, value } = action.payload;
+//       state.filters[filterName] = value;
+//     },
+//     resetFilters(state) {
+//       state.filters = {};
 //     },
 //   },
+// });

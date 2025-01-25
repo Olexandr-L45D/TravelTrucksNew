@@ -9,7 +9,7 @@ const newLinkClass = ({ isActive }) => {
 
 export const Navigation = () => {
   return (
-    <header className={css.container}>
+    <section className={css.container}>
       <div className={css.title}>
         <Link to="/">
           <svg className={css.iconLogo}>
@@ -27,6 +27,6 @@ export const Navigation = () => {
           </NavLink>
         </nav>
       </section>
-    </header>
+    </section>
   );
 };
