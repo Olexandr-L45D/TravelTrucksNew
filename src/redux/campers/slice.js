@@ -10,8 +10,8 @@ const campersSlice = createSlice({
     error: null,
     selectedTruck: null, // Для збереження деталей вантажівки
     isBooked: false,
-    id: 1,
-    name: "Truck Name",
+    totalpages: 1,
+    page: 1,
   },
   reducers: {},
   extraReducers: builder => {
@@ -20,11 +20,19 @@ const campersSlice = createSlice({
         state.loading = true;
       })
       .addCase(fetchAllTruck.fulfilled, (state, action) => {
-        // state.items = action.payload; // Зберігаємо масив вантажівок
-        state.items = action.payload.items || [];
+        console.log("Fetched Items:", action.payload.items);
+        const newItems = action.payload.items.filter(
+          item => !state.items.some(existing => existing.id === item.id)
+        );
+        state.items = [...state.items, ...newItems];
         state.loading = false;
         state.isFetched = true;
+        state.totalpages = Math.ceil(action.payload.total / 4);
+        if (state.page < state.totalpages) {
+          state.page += 1;
+        }
       })
+
       .addCase(fetchAllTruck.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
@@ -45,20 +53,3 @@ const campersSlice = createSlice({
 });
 
 export default campersSlice.reducer;
-
-// .addCase(reservation.fulfilled, (state, action) => {
-//         const truckIndex = state.trucks.findIndex(
-//           truck => truck.id === action.payload.truckId
-//         );
-//         if (truckIndex >= 0) {
-//           state.trucks[truckIndex].isBooked = true; // Оновлюємо статус
-//         }
-//         state.loading = false;
-//       })
-//       .addCase(reservation.pending, state => {
-//         state.loading = true;
-//       })
-//       .addCase(reservation.rejected, (state, action) => {
-//         state.error = action.payload;
-//         state.loading = false;
-//       });

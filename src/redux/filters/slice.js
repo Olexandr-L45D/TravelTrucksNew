@@ -1,55 +1,53 @@
-// slice = filtersSlice
 import { createSlice } from "@reduxjs/toolkit";
+
+const initialState = {
+  // filters: "",
+  filters: {},
+  // filters: {
+  //   location: "Ukraine, Kyiv",
+  // },
+};
 
 const filtersSlice = createSlice({
   name: "filters",
-  initialState: {
-    filters: {},
-  },
-  // initialState: {
-  //   filters: {
-  //     location: "",
-  //     AC: true,
-  //     water: true,
-  //     engin: true,
-  //     kitchen: true,
-  //   },
-  // },
+  initialState,
   reducers: {
     setFilter(state, action) {
-      state.filters[action.payload.filterName] = action.payload.value;
+      const { filterName, value } = action.payload;
+      console.log("Set filter currents:", filterName, value); // Діагностика
+      state.filters = { ...state.filters, [filterName]: value };
     },
+    // setFilter(state, action) {
+    //   const { filterName, value } = action.payload;
+    //   state.filters = { ...state.filters, [filterName]: value,
+    //   };
+    // },
     setChangeFilter: (state, action) => {
       state.filters = action.payload; // Оновлюємо всі фільтри
     },
-    resetFilters(state) {
-      state.filters = {};
-    },
+    // resetFilters(state) {
+    //   state.filters = {};
+    // },
   },
-
-  // reducers: {
-  //   setChangeFilter: (state, action) => {
-  //     state.filters = action.payload; // Оновлюємо всі фільтри
-  //   },
-  //   setFilter(state, action) {
-  //     const { filterName, value } = action.payload;
-  //     state.filters[filterName] = value; // Оновлюємо конкретний фільтр
-  //   },
-  //   resetFilters: state => {
-  //     state.filters = {
-  //       location: "",
-  //       AC: false,
-  //       water: false,
-  //       engin: false,
-  //       kitchen: false,
-  //     };
-  //   },
-  // },
 });
 
 export const { setChangeFilter, setFilter, resetFilters } =
   filtersSlice.actions;
 export const filtersReducer = filtersSlice.reducer;
+
+// {
+//   filters: {
+//     filters: {
+//       location: "Ukraine, Kyiv",
+//       kitchen: true,
+//       ...
+//     }
+//   },
+//   campers: {
+//     items: [...],
+//     ...
+//   }
+// }
 
 // const initialState = {
 //   filters: {},
@@ -68,3 +66,25 @@ export const filtersReducer = filtersSlice.reducer;
 //     },
 //   },
 // });
+
+// add filtersReducer
+
+// const initialState = {
+//   location: "",
+//   feature1: false,
+//   feature2: false,
+// };
+
+// const filtersReducer = (state = initialState, action) => {
+//   switch (action.type) {
+//     case "SET_FILTER":
+//       return {
+//         ...state,
+//         [action.payload.key]: action.payload.value,
+//       };
+//     default:
+//       return state;
+//   }
+// };
+
+// export default filtersReducer;
