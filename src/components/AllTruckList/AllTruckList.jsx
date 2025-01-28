@@ -3,12 +3,12 @@ import sprite from "../../images/sprite.svg";
 import css from "./AllTruckList.module.css";
 import { useSelector } from "react-redux";
 // import { selectTrucs } from "../../redux/campers/selectors";
-import { selectFilteredTrucks } from "../../redux/filters/selectors";
+import { selectFilteredByLocation } from "../../redux/filters/selectors";
 
 export default function AllTruckList() {
   // const trucks = useSelector(selectTrucs); // Витягнули зі стану (те що з Сергієм писали)
-  // Використовуємо мемоізований селектор
-  const trucks = useSelector(selectFilteredTrucks);
+  // Використовуємо мемоізований селектор а саме Селектор фільтрації вантажівок за локацією
+  const trucks = useSelector(selectFilteredByLocation);
   if (!trucks || trucks.length === 0) {
     return <div>No trucks available</div>; // Відобразіть це, якщо дані ще не завантажені
   }

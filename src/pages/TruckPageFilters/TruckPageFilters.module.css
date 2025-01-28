@@ -9,6 +9,7 @@
     justify-content: center;
     align-items: center;
 }
+
 .cartAllPage {
     width: 1440px;
     height: auto;
@@ -16,20 +17,11 @@
     padding: 0px;
     display: flex;
     flex-direction: row;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: flex-start;
+    align-items: flex-start; */
+    text-align: right;
+    justify-content: right;
+    align-items: right;
 }
 
-.cartTitle {
-    padding: 2px;
-    margin: 2px;
-    color: black;
-    font-size: 2em;
-    font-weight: 700;
-    line-height: 1.5;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-}
+

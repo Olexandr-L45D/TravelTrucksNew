@@ -21,9 +21,11 @@ export default function TruckPageFilters() {
   // Об'єднаний useEffect
   useEffect(() => {
     const existingFilters = Object.fromEntries(params.entries());
-    // Синхронізація Redux-фільтрів із URL
-    if (JSON.stringify(existingFilters) !== JSON.stringify(filteres)) {
-      dispatch(setChangeFilter(existingFilters));
+    // Якщо URL містить параметри, а Redux-параметри порожні
+    if (!Object.keys(filteres).length && Object.keys(existingFilters).length) {
+      console.log("Initializing Redux with existing filters:", existingFilters);
+      // dispatch(setChangeFilter(existingFilters)); // Синхронізація Redux з URL
+      dispatch(setChangeFilter({ location: "" })); // Синхронізація Redux з URL { location: "" }
       return;
     }
     // Оновлення URL при зміні фільтрів
@@ -34,36 +36,52 @@ export default function TruckPageFilters() {
     });
 
     if (newParams.toString() !== params.toString()) {
+      console.log("Updated URL params:", newParams.toString());
       setParams(newParams);
+      console.log("URL Params:", params);
     }
   }, [params, filteres, dispatch, setParams]);
 
-  // Завантаження вантажівок попередня версія
+  // Завантаження вантажівок версія - яка працює наразі
   useEffect(() => {
     if (page === 1) {
       dispatch(fetchAllTruck({ page }));
     }
   }, [dispatch, page, filteres]);
-  // useEffect(() => {
-  //   if (filteres && Object.keys(filteres).length > 0) {
-  //     dispatch(fetchAllTruck({ page, filters: filteres }));
-  //   } else if (page === 1) {
-  //     dispatch(fetchAllTruck({ page }));
-  //   }
-  // }, [dispatch, page, filteres]);
 
   return (
     <div className={css.cartAll}>
       <div className={css.cartAllPage}>
         <SearchBoxFiltr />
-        {isLoading && <Loader />}
-        <AllTruckList />
+        {isLoading ? <Loader /> : <AllTruckList />}
       </div>
       <ButtonLoadMore />
     </div>
   );
 }
 
+// попередня версія
+// const existingFilters = Object.fromEntries(params.entries());
+// // Синхронізація Redux-фільтрів із URL
+// console.log("Dispatching to Redux:", existingFilters); // Діагностика (тимчасово)
+// // console.log("Current filters in Redux:", filteres);
+// if (JSON.stringify(existingFilters) !== JSON.stringify(filteres)) {
+//   dispatch(setChangeFilter(existingFilters));
+//   return;
+// }
+
+// Оновлення URL при зміні фільтрів і Якщо URL-параметри порожні, їх потрібно додати:
+// const newParams = new URLSearchParams();
+// Object.entries(filteres).forEach(([key, value]) => {
+//   if (value) newParams.set(key, value);
+// });
+
+// console.log("Updated URL params:", newParams.toString());
+// setParams(newParams);
+// {
+//   isLoading && <Loader />;
+// }
+// <AllTruckList />;
 // export default function TruckPageFilters() {
 //   const dispatch = useDispatch();
 //   const isLoading = useSelector(state => state.campers.loading);
@@ -103,6 +121,14 @@ export default function TruckPageFilters() {
 //     </div>
 //   );
 // }
+
+// useEffect(() => {
+//   if (filteres && Object.keys(filteres).length > 0) {
+//     dispatch(fetchAllTruck({ page, filters: filteres }));
+//   } else if (page === 1) {
+//     dispatch(fetchAllTruck({ page }));
+//   }
+// }, [dispatch, page, filteres]);
 
 // export default function TruckPageFilters() {
 //   const dispatch = useDispatch();

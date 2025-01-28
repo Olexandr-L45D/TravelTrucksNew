@@ -5,6 +5,7 @@ export const selectTrucks = state => state.campers.items;
 
 // Основний селектор фільтрів
 export const selectFilters = state => state.filters.filters;
+// export const selectFilters = state => state.filters; цей варіант не працює
 
 // Селектор фільтрації вантажівок за локацією
 export const selectFilteredByLocation = createSelector(
