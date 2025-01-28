@@ -1,5 +1,5 @@
 .item {
-    width: 360px;
+    width: 300px;
     height: auto;
     margin: 5px;
     margin-top: 20px;
@@ -14,21 +14,19 @@
     text-align: left;
     align-items: left;
     position: fixed;
-        top: 50px;
-        /* Відступ від нижнього краю */
-        left: 15%;
-        /* Центрування кнопки по горизонталі */
-        transform: translateX(-50%);
-        /* Центрування відносно ширини кнопки */
-        z-index: 10;
-        /* Щоб кнопка була поверх іншого контенту */
-        /* display: flex;
-        justify-content: center;
-        align-items: center; */
+    top: 50px;
+    /* Відступ від нижнього краю */
+    left: 13%;
+    /* Центрування кнопки по горизонталі */
+    transform: translateX(-50%);
+     /* Центрування відносно ширини кнопки */
+     z-index: 10;
+    /* Щоб поверх іншого контенту */
+       
 }
 
 .items {
-    width: 110px;
+    width: 140px;
     height: 96px;
     margin: 6px;
     padding: 0px;
@@ -43,18 +41,15 @@
 
 .label {
     width: 150px;
-    height: 30px;
+    height: 50px;
     margin-bottom: 16px;
     padding: 10px;
 }
 
 .paragraf {
-    /* text-align: center;
-    align-items: center; */
     justify-content: start;
-        /* justify-content: center; */
-    padding-bottom: 0px;
-    margin: 0px;
+    padding-bottom: 5px;
+    margin: 2px;
 }
 
 .buttonIconSearch {
@@ -65,6 +60,7 @@
     margin-left: 15px;
     display: flex;
     flex-direction: row;
+    justify-content: center;
     text-align: center;
     align-items: center;
     border-radius: 40px;
@@ -105,7 +101,7 @@
     padding: 2px;
     margin: 5px;
     width: 250px;
-    height: 35px;
+    height: 50px;
     background-color: #f7f7f7;
     border: none;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

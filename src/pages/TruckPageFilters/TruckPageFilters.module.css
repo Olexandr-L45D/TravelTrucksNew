@@ -8,6 +8,8 @@
     text-align: center;
     justify-content: center;
     align-items: center;
+    /* overflow-x: hidden; */ 
+    /* фіксує сторінку і блокує горизонтальний скрол (вліво/вправо) */
 }
 
 .cartAllPage {
@@ -17,11 +19,9 @@
     padding: 0px;
     display: flex;
     flex-direction: row;
-    /* justify-content: flex-start;
-    align-items: flex-start; */
-    text-align: right;
-    justify-content: right;
-    align-items: right;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
 

@@ -39,7 +39,7 @@ export default function SearchBoxFiltr() {
 
   return (
     <div className={css.item}>
-      <h2 className={css.paragraf}>Find truck by location</h2>
+      <h2 className={css.paragraf}>Please find truck by location</h2>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -49,11 +49,11 @@ export default function SearchBoxFiltr() {
         {({ isSubmitting }) => (
           <Form>
             <label className={css.label}>
-              Location:
+              Location example: Country, City
               <Field
                 type="text"
                 name="location"
-                placeholder="Enter location"
+                placeholder="Enter the location..."
                 className={css.inp}
               />
               <ErrorMessage
