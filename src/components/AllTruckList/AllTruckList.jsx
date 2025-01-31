@@ -1,12 +1,11 @@
 import { NavLink } from "react-router-dom";
 import sprite from "../../images/sprite.svg";
 import css from "./AllTruckList.module.css";
+
 import { useSelector } from "react-redux";
-// import { selectTrucs } from "../../redux/campers/selectors";
 import { selectFilteredByLocation } from "../../redux/filters/selectors";
 
 export default function AllTruckList() {
-  // const trucks = useSelector(selectTrucs); // Витягнули зі стану (те що з Сергієм писали)
   // Використовуємо мемоізований селектор а саме Селектор фільтрації вантажівок за локацією
   const trucks = useSelector(selectFilteredByLocation);
   if (!trucks || trucks.length === 0) {
@@ -58,13 +57,19 @@ export default function AllTruckList() {
                     <svg className={css.icon}>
                       <use href={`${sprite}#icon-aut`} />
                     </svg>
-                    <strong>Automatic</strong> {truck.water}
+                    <strong>
+                      {truck.transmission.charAt(0).toUpperCase() +
+                        truck.transmission.slice(1)}
+                    </strong>
                   </li>
                   <li className={css.featuresItem}>
                     <svg className={css.icon}>
                       <use href={`${sprite}#icon-petrol`} />
                     </svg>
-                    <strong>Petrol</strong> {truck.engin}
+                    <strong>
+                      {truck.engine.charAt(0).toUpperCase() +
+                        truck.engine.slice(1)}
+                    </strong>
                   </li>
                   <li className={css.featuresItem}>
                     <svg className={css.icon}>
@@ -105,7 +110,9 @@ export default function AllTruckList() {
 //   water,
 //   engin,
 //   kitchen,
-//   AC,
+// //   AC,
+// "transmission": "manual",
+//             "engine": "petrol",
 // }
 // <li key={id} className={css.cartItem}>
 /* <ul>

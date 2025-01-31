@@ -1,14 +1,18 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import sprite from "../../images/sprite.svg";
 import css from "./TruckDetails.module.css";
 import { GoArrowLeft } from "react-icons/go";
 import { findTruckById } from "../../redux/campers/operations";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Outlet } from "react-router-dom";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
 const TruckDetails = ({ id }) => {
   const dispatch = useDispatch();
   const { selectedTruck, loading, error } = useSelector(state => state.campers);
+  const [open, setOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     dispatch(findTruckById(id)); // Запит на завантаження деталей вантажівки
@@ -16,6 +20,12 @@ const TruckDetails = ({ id }) => {
   if (loading) {
     return <p>Loading...</p>;
   }
+  const slides = selectedTruck?.gallery
+    ? selectedTruck.gallery.map(({ original }) => ({
+        src: original, // Використовуємо повнорозмірне зображення original
+        alt: selectedTruck.name,
+      }))
+    : [];
   if (error) {
     return <p>Error: {error.message || error}</p>;
   }
@@ -65,12 +75,12 @@ const TruckDetails = ({ id }) => {
                   className={css.img}
                   src={thumb}
                   alt={`${selectedTruck.name} thumbnail`}
+                  onClick={() => {
+                    setCurrentIndex(index);
+                    setOpen(true);
+                  }}
+                  style={{ cursor: "pointer" }}
                 />
-                {/* <img
-                  className={css.img}
-                  src={original}
-                  alt={`${selectedTruck.name} original`}
-                /> */}
               </li>
             ))}
           </ul>
@@ -109,6 +119,12 @@ const TruckDetails = ({ id }) => {
                 </button>
               </li>
             </ul>
+            <Lightbox
+              open={open}
+              close={() => setOpen(false)}
+              slides={slides}
+              initialIndex={currentIndex} // Правильний параметр
+            />
             <Outlet />
           </div>
         </section>
@@ -118,3 +134,12 @@ const TruckDetails = ({ id }) => {
 };
 
 export default TruckDetails;
+
+// Пояснення:
+// Стан компонента:
+// open: Відповідає за відкриття або закриття лайтбоксу.
+// currentIndex: Зберігає індекс поточного зображення.
+// Масив slides: Містить об'єкти з повнорозмірними зображеннями та їх описами.
+// Обробник події onClick: При натисканні на мініатюру встановлює поточний індекс та відкриває лайтбокс.
+// Компонент Lightbox: Відображає повнорозмірне зображення з можливістю перегляду інших зображень.
+// Цей підхід забезпечує зручний перегляд зображень у лайтбоксі при натисканні на мініатюри в каталозі автомобілів.

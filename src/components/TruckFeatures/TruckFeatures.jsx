@@ -14,7 +14,10 @@ export default function TruckFeatures() {
             <svg className={css.icon}>
               <use href={`${sprite}#icon-aut`} />
             </svg>
-            <strong>Automatic</strong> {selectedTruck.water}
+            <strong>
+              {selectedTruck.transmission.charAt(0).toUpperCase() +
+                selectedTruck.transmission.slice(1)}
+            </strong>
           </li>
           <li className={css.textdes}>
             <svg className={css.icon}>
@@ -26,7 +29,10 @@ export default function TruckFeatures() {
             <svg className={css.icon}>
               <use href={`${sprite}#icon-petrol`} />
             </svg>
-            <strong>Petrol</strong> {selectedTruck.engin}
+            <strong>
+              {selectedTruck.engine.charAt(0).toUpperCase() +
+                selectedTruck.engine.slice(1)}
+            </strong>
           </li>
           <li className={css.textdes}>
             <svg className={css.icon}>
@@ -46,19 +52,28 @@ export default function TruckFeatures() {
             </li>
             <li className={css.textdeskrip}>
               <p className={css.textTit}>Length</p>
-              <p className={css.texBec}>{selectedTruck.length}</p>
+              <p className={css.texBec}>
+                {selectedTruck.length.replace(/(\d)(m)$/, "$1 $2")}
+              </p>
             </li>
             <li className={css.textdeskrip}>
               <p className={css.textTit}>Width</p>
-              <p className={css.texBec}>{selectedTruck.width}</p>
+              <p className={css.texBec}>
+                {selectedTruck.width.replace(/(\d)(m)$/, "$1 $2")}
+              </p>
+              {/* Цей код знайде останню цифру перед "m" і вставить перед нею пробіл  */}
             </li>
             <li className={css.textdeskrip}>
               <p className={css.textTit}>Height</p>
-              <p className={css.texBec}> {selectedTruck.height}</p>
+              <p className={css.texBec}>
+                {selectedTruck.height.replace(/(\d)(m)$/, "$1 $2")}
+              </p>
             </li>
             <li className={css.textdeskrip}>
               <p className={css.textTit}>Tank</p>
-              <p className={css.texBec}>{selectedTruck.tank}</p>
+              <p className={css.texBec}>
+                {selectedTruck.tank.replace(/(\d)(l)$/, "$1 $2")}
+              </p>
             </li>
             <li className={css.textdeskrip}>
               <p className={css.textTit}>Consumption</p>
