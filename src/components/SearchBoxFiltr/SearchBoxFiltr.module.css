@@ -2,7 +2,7 @@
     width: 290px;
     height: auto;
     margin: 5px;
-    margin-top: 20px;
+    margin-top: 40px;
     padding: 5px;
     padding-top: 30px;
     padding-bottom: 5px;
@@ -16,7 +16,7 @@
     position: fixed;
     top: 50px;
     /* Відступ від нижнього краю */
-    left: 12%;
+    left: 11%;
     /* Центрування кнопки по горизонталі */
     transform: translateX(-50%);
      /* Центрування відносно ширини кнопки */

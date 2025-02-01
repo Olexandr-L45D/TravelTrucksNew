@@ -3,8 +3,10 @@ import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useTranslation } from "react-i18next";
 
 export default function BookingForm() {
+  const { t } = useTranslation();
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Name is required"),
     email: Yup.string()
@@ -94,7 +96,7 @@ export default function BookingForm() {
 
             <section className={css.buttonSend}>
               <button className={css.btnSend} type="submit">
-                Send
+                {t("navigation.send")}
               </button>
             </section>
           </Form>

@@ -7,9 +7,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Outlet } from "react-router-dom";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+import { useTranslation } from "react-i18next";
 
 const TruckDetails = ({ id }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const { selectedTruck, loading, error } = useSelector(state => state.campers);
   const [open, setOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -97,7 +99,7 @@ const TruckDetails = ({ id }) => {
                   }
                   to="features"
                 >
-                  Features
+                  {t("navigation.features")}
                 </NavLink>
               </li>
               <li className={css.textTitles}>
@@ -107,14 +109,14 @@ const TruckDetails = ({ id }) => {
                   }
                   to="reviews"
                 >
-                  Reviews
+                  {t("navigation.reviews")}
                 </NavLink>
               </li>
               <li className={css.textLink}>
                 <button className={css.buttonIcon}>
                   <GoArrowLeft className={css.icons} />
                   <NavLink className={css.linkGo} to="/catalog">
-                    Go to Catalog
+                    {t("navigation.go_Catalog")}
                   </NavLink>
                 </button>
               </li>
@@ -141,5 +143,5 @@ export default TruckDetails;
 // currentIndex: Зберігає індекс поточного зображення.
 // Масив slides: Містить об'єкти з повнорозмірними зображеннями та їх описами.
 // Обробник події onClick: При натисканні на мініатюру встановлює поточний індекс та відкриває лайтбокс.
-// Компонент Lightbox: Відображає повнорозмірне зображення з можливістю перегляду інших зображень.
+// Компонент Lightbox: Відображає повнорозмірне зображення з можливістю перегляду інших зображень при кліку на стрілку.
 // Цей підхід забезпечує зручний перегляд зображень у лайтбоксі при натисканні на мініатюри в каталозі автомобілів.

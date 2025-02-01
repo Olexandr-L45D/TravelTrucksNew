@@ -2,9 +2,11 @@ import { useSelector } from "react-redux";
 import sprite from "../../images/sprite.svg";
 import css from "./TruckFeatures.module.css";
 import BookingForm from "../BookingForm/BookingForm";
+import { useTranslation } from "react-i18next";
 
 export default function TruckFeatures() {
   const { selectedTruck } = useSelector(state => state.campers);
+  const { t } = useTranslation();
 
   return (
     <section className={css.cartBottomDetall}>
@@ -84,10 +86,8 @@ export default function TruckFeatures() {
       </section>
 
       <section className={css.textContainerses}>
-        <h3 className={css.textTitleTit}>Book yoor campervan now</h3>
-        <h4 className={css.textTitleTi}>
-          Stay connected ! We are alwaays raady to help you.
-        </h4>
+        <h3 className={css.textTitleTit}>{t("navigation.bokTitleFm")}</h3>
+        <h4 className={css.textTitleTi}>{t("navigation.bokTitleFmText")}</h4>
         <div className={css.blocForm}>
           <BookingForm />
         </div>

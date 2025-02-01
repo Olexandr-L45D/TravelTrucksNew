@@ -1,10 +1,13 @@
 import css from "./ButtonLoadMore.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAllTruck } from "../../redux/campers/operations";
+import { useTranslation } from "react-i18next";
 
 export default function ButtonLoadMore() {
   const dispatch = useDispatch();
   const { page, totalpages, loading } = useSelector(state => state.campers);
+
+  const { t } = useTranslation();
 
   const handleClick = () => {
     if (!loading && page < totalpages) {
@@ -21,7 +24,7 @@ export default function ButtonLoadMore() {
         onClick={handleClick}
         disabled={loading || page >= totalpages}
       >
-        {loading ? "Loading..." : "Load More"}
+        {loading ? "Loading..." : t("navigation.Load")}
       </button>
     </div>
   );

@@ -235,7 +235,12 @@ padding: 0px;
         background-color: #e44848;
         border: 1px solid rgba(0, 0, 0, 0.1);
         border-radius: 40px;
-    color: #fff;
+    color: #ffffff;
+}
+
+.btnShowe:hover, 
+.btnShowe:focus {
+    color: #0f0707;
 }
 .img {
     width: 292px;

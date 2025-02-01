@@ -6,8 +6,10 @@ import { useSearchParams } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { selectFilters } from "../../redux/filters/selectors";
+import { useTranslation } from "react-i18next";
 
 export default function SearchBoxFiltr() {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const filters = useSelector(selectFilters);
   const [params, setParams] = useSearchParams();
@@ -39,7 +41,7 @@ export default function SearchBoxFiltr() {
 
   return (
     <div className={css.item}>
-      <h2 className={css.paragraf}>Please find truck by location</h2>
+      <h2 className={css.paragraf}>{t("navigation.searchTitle")}</h2>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -49,7 +51,7 @@ export default function SearchBoxFiltr() {
         {({ isSubmitting }) => (
           <Form>
             <label className={css.label}>
-              Location example: Country, City
+              {t("navigation.example")}
               <Field
                 type="text"
                 name="location"
@@ -68,7 +70,7 @@ export default function SearchBoxFiltr() {
                 type="submit"
                 disabled={isSubmitting}
               >
-                Search
+                {t("navigation.search")}
               </button>
             </div>
           </Form>

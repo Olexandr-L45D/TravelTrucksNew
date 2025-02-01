@@ -96,3 +96,82 @@ a:focus {
     
 }
 
+.languageSwitcher {
+    display: flex;
+    gap: 10px;
+    padding: 1px;
+    padding-right: 20px;
+    margin: 1px;
+    margin-right: 20px;
+    margin-left: auto;
+}
+
+.languageSwitcher button {
+    padding: 5px 10px;
+    background: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #0e0d0d;
+   
+}
+
+/* Зміна кольору при наведенні */
+.languageSwitcher button:hover {
+    background-color: white;
+    border-color: white;
+    color: white;
+}
+
+/* Активна кнопка (вибрана мова) */
+.activeButton {
+    color: #0e0d0d;
+    /* Текст червоний */
+    font-weight: bold;
+    border-color: white;
+    border: 1px solid #ccc;
+        padding: 5px 10px;
+        border-radius: 5px;
+}
+
+.activeButton:hover,
+.activeButton:focus
+ {
+    color: #d84343 !important;
+    /* Текст червоний */
+    font-weight: bold;
+    border-color: #d84343;
+}
+/* .languageSwitcher {
+    display: flex;
+    gap: 10px;
+    padding: 1px;
+    padding-right: 20px;
+    margin: 1px;
+    margin-right: 20px;
+    margin-left: auto;
+}
+
+.languageSwitcher button {
+    background: none;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #0e0d0d;
+}
+
+.languageSwitcher button:hover {
+    background-color: #d84343;
+    border-color: #d84343;
+}
+
+.button:hover,
+.button:focus {
+    background-color: #d84343;
+    border-color: #d84343;
+    color: #d84343;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+} */

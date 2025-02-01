@@ -1,11 +1,12 @@
 import { NavLink } from "react-router-dom";
 import sprite from "../../images/sprite.svg";
 import css from "./AllTruckList.module.css";
-
+import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { selectFilteredByLocation } from "../../redux/filters/selectors";
 
 export default function AllTruckList() {
+  const { t } = useTranslation();
   // Використовуємо мемоізований селектор а саме Селектор фільтрації вантажівок за локацією
   const trucks = useSelector(selectFilteredByLocation);
   if (!trucks || trucks.length === 0) {
@@ -87,7 +88,7 @@ export default function AllTruckList() {
 
                 <button className={css.buttonIconShowe}>
                   <NavLink className={css.btnShowe} to={`/catalog/${truck.id}`}>
-                    Show more
+                    {t("navigation.show_more")}
                   </NavLink>
                 </button>
               </section>
