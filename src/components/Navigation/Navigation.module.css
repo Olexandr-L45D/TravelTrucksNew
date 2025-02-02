@@ -17,7 +17,7 @@
     justify-content: center;
     align-items: center;
     height: 72px;
-    width: 100%;
+    width: 1440px;
     /* Забезпечує повну ширину */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     /* Додає тінь для кращої видимості */
@@ -100,9 +100,9 @@ a:focus {
     display: flex;
     gap: 10px;
     padding: 1px;
-    padding-right: 20px;
+    padding-right: 30px;
     margin: 1px;
-    margin-right: 20px;
+    margin-right: 170px;
     margin-left: auto;
 }
 

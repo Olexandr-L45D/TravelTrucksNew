@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import tasksReducerCard from "./campers/slice";
 import { filtersReducer } from "./filters/slice";
+import languageReducer from "./sliceLanguage";
 
 import {
   persistStore,
@@ -16,6 +17,7 @@ export const store = configureStore({
   reducer: {
     campers: tasksReducerCard,
     filters: filtersReducer,
+    language: languageReducer, // Додаємо в Redux in sliceLanguage-translate
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

@@ -45,40 +45,40 @@ export default function TruckFeatures() {
         </ul>
         <section className={css.textContainers}>
           <div className={css.textTitleVeBlok}>
-            <h3 className={css.textTitleVe}>Vehicle details</h3>
+            <h3 className={css.textTitleVe}>{t("navigation.titleVeh")}</h3>
           </div>
           <ul className={css.textdesForm}>
             <li className={css.textdeskrip}>
-              <p className={css.textTit}>Form</p>
+              <p className={css.textTit}>{t("navigation.form")}</p>
               <p className={css.texBec}>{selectedTruck.form}</p>
             </li>
             <li className={css.textdeskrip}>
-              <p className={css.textTit}>Length</p>
+              <p className={css.textTit}>{t("navigation.lenght")}</p>
               <p className={css.texBec}>
                 {selectedTruck.length.replace(/(\d)(m)$/, "$1 $2")}
               </p>
             </li>
             <li className={css.textdeskrip}>
-              <p className={css.textTit}>Width</p>
+              <p className={css.textTit}>{t("navigation.width")}</p>
               <p className={css.texBec}>
                 {selectedTruck.width.replace(/(\d)(m)$/, "$1 $2")}
               </p>
               {/* Цей код знайде останню цифру перед "m" і вставить перед нею пробіл  */}
             </li>
             <li className={css.textdeskrip}>
-              <p className={css.textTit}>Height</p>
+              <p className={css.textTit}>{t("navigation.height")}</p>
               <p className={css.texBec}>
                 {selectedTruck.height.replace(/(\d)(m)$/, "$1 $2")}
               </p>
             </li>
             <li className={css.textdeskrip}>
-              <p className={css.textTit}>Tank</p>
+              <p className={css.textTit}>{t("navigation.tank")}</p>
               <p className={css.texBec}>
                 {selectedTruck.tank.replace(/(\d)(l)$/, "$1 $2")}
               </p>
             </li>
             <li className={css.textdeskrip}>
-              <p className={css.textTit}>Consumption</p>
+              <p className={css.textTit}>{t("navigation.consum")}</p>
               <p className={css.texBec}>{selectedTruck.consumption}</p>
             </li>
           </ul>
